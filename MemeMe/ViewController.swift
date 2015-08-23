@@ -93,7 +93,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    
+    /// Resets the imageview, top and bottom textfield to their default values
     func initializeSurface(){
         // Configure initial share button
         shareButton.enabled = false
@@ -156,8 +156,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     
     **/
-    
-    // The target of the Share Action button; will bring up the ActivityViewController to share the memedimage
+    /// The target of the Share Action button; will bring up the ActivityViewController to share the memedimage
     @IBAction func share(){
         // Generate a memed image
         // Create a local variable for instantian of a UIImage
@@ -186,7 +185,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     
-    // The target of the Cancel Button; reinitializes the base page
+    /// The target of the Cancel Button; reinitializes the base page
     @IBAction func cancel(sender: AnyObject) {
         initializeSurface()
     }
@@ -203,14 +202,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     **/
-    
+    /// Selects an Image from the photo album
     @IBAction func pickAnImage(sender: AnyObject) {
         imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     
-    
+    /// Selects an Image from the camera
     @IBAction func pickAnImageFromCamera (sender: AnyObject) {
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
@@ -229,18 +228,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     **/
-    
+    /// Present the new UIImage in the imageview
     func imagePickerController(picker:  UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]){
             // Verify that the image is a UIImage; if it is then show it
             if let image = info[UIImagePickerControllerOriginalImage] as? UIImage
             {
                 imagePickerView.image = image
                 imagePickerView.contentMode = UIViewContentMode.ScaleAspectFill
+                
+                // Now that we have an image available; allow sharebutton
+                shareButton.enabled = true
             }
-            
-            
-            // Now that we have an image available; allow sharebutton
-            shareButton.enabled = true
             
             
             // Dismiss the ImagePicker ViewController.
@@ -309,7 +307,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     **/
-    
+    /// Generates a keyboard height for the bottom textfield, generates 0 for top textfield
     func getKeyboardHeight(notification:NSNotification) -> CGFloat {
         // Only save a keyboard height offset when the bottom textfield calls for a keyboard; 
         // (this function is guaranteed to happen AFTER textFieldShouldBeginEditing function is called)
@@ -323,7 +321,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    
+    /// Moves the view up prior to presenting keyboard
     func keyboardWillShow(notification: NSNotification){
         // Get height of keyboard and save it globally
         myKeyboardHeight = getKeyboardHeight(notification)
@@ -339,16 +337,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    
+    /// Moves the view down when the keyboard is dismissed
     func keyboardWillHide(notification: NSNotification){
-        // Move the whole UIView down by the keyboard amount
+        /// Move the whole UIView down by the keyboard amount
         view.frame.origin.y = 0.0
         unsubscribeFromKeyboardHideNotifications()
         subscribeToKeyboardShowNotifications()
     }
     
     
-    
+    /// Subscribes to the notification center for keyboard appearances
     func subscribeToKeyboardShowNotifications(){
         // Notify this view controller when keyboard will show
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
@@ -356,7 +354,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    
+    /// Subscribes to the notification center for keyboard disappearances
     func subscribeToKeyboardHideNotifications(){
         // Notify this viewcontroller when keyboard will hide
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
@@ -364,7 +362,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    
+    /// Unsubscribes to the notification center for keyboard appearnaces
     func unsubscribeFromKeyboardShowNotifications(){
         // Stop notifying this view controller when the keyboard will show
         NSNotificationCenter.defaultCenter().removeObserver(self, name:UIKeyboardWillShowNotification, object: nil)
@@ -372,7 +370,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    
+    /// Unscubscribes to the notification center for keyboard disappearances
     func unsubscribeFromKeyboardHideNotifications(){
         // Stop notifying this view controller when the keyboard will hide
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
@@ -391,16 +389,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     **/
-    
+    /// Creates the Meme struct
     func save(){
         //Create the meme
-        var meme = Meme( topString: topTextField.text!, bottomString: bottomTextField.text!, iOriginalImage: imagePickerView.image!, iMemedImage: generateMemedImage()
+        var meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, originalimage: imagePickerView.image!, memedImage: generateMemedImage()
         )
     }
     
     
     
-    // Create a UIImage that combines the Image View and the Textfields
+    /// Creates a UIImage that combines the Image View and the Textfields
     func generateMemedImage() -> UIImage {
         // Hide toolbar and navigation bar
         toolbar.hidden = true
@@ -429,18 +427,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
 
 // The Meme class
-class Meme {
+struct Meme {
     var topString: String
     var bottomString: String
     var originalimage: UIImage
     var memedImage: UIImage
-    
-    init(topString: String, bottomString: String, iOriginalImage: UIImage, iMemedImage: UIImage){
-        self.topString = topString
-        self.bottomString = bottomString
-        self.originalimage = iOriginalImage
-        self.memedImage = iMemedImage
-    }
     
 }
 
