@@ -342,7 +342,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func keyboardWillHide(notification: NSNotification){
         // Move the whole UIView down by the keyboard amount
-        view.frame.origin.y += myKeyboardHeight
+        view.frame.origin.y = 0.0
         unsubscribeFromKeyboardHideNotifications()
         subscribeToKeyboardShowNotifications()
     }
