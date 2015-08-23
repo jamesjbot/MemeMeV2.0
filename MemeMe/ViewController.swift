@@ -171,7 +171,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     
         // Present the ActivityViewController
-        self.presentViewController(controller, animated: true, completion: nil)
+        presentViewController(controller, animated: true, completion: nil)
         
         
         // Assign the function that should run when ActivityViewController completes
@@ -206,7 +206,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func pickAnImage(sender: AnyObject) {
         imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     
@@ -214,7 +214,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func pickAnImageFromCamera (sender: AnyObject) {
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     
@@ -244,7 +244,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             
             // Dismiss the ImagePicker ViewController.
-            self.dismissViewControllerAnimated(true, completion: nil)
+            dismissViewControllerAnimated(true, completion: nil)
     }
     
     
@@ -329,7 +329,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         myKeyboardHeight = getKeyboardHeight(notification)
         
         // Move the whole UIView up by the keyboard amount
-        self.view.frame.origin.y -= myKeyboardHeight
+        view.frame.origin.y -= myKeyboardHeight
         
         // Stop responding to keyboard will SHOW notificaions
         unsubscribeFromKeyboardShowNotifications()
@@ -342,7 +342,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func keyboardWillHide(notification: NSNotification){
         // Move the whole UIView down by the keyboard amount
-        self.view.frame.origin.y += myKeyboardHeight
+        view.frame.origin.y += myKeyboardHeight
         unsubscribeFromKeyboardHideNotifications()
         subscribeToKeyboardShowNotifications()
     }
@@ -407,8 +407,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         navbar.hidden = true
         
         // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
