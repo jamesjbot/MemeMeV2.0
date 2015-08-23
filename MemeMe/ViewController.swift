@@ -157,7 +157,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     **/
     
-    // The Target of the Share Action button; will bring up the ActivityViewController to share the memedimage
+    // The target of the Share Action button; will bring up the ActivityViewController to share the memedimage
     @IBAction func share(){
         // Generate a memed image
         // Create a local variable for instantian of a UIImage
@@ -186,7 +186,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     
-    // The targe of the Cancel Button
+    // The target of the Cancel Button; reinitializes the base page
     @IBAction func cancel(sender: AnyObject) {
         initializeSurface()
     }
