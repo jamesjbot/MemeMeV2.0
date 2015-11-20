@@ -13,7 +13,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    // Variable to hold shared data
+    var memes = [Meme]()
 
+    func inquireMeme() -> Int {
+        return memes.count
+    }
+    
+    
+    func doesMemeExist() -> Bool {
+        if memes.count > 0  {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         return true

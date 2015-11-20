@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A7C196BA1BFED7AA00D0B776 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C196B91BFED7AA00D0B776 /* DetailView.swift */; settings = {ASSET_TAGS = (); }; };
 		A7C55CA51B6582B1004CE204 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C55CA41B6582B1004CE204 /* AppDelegate.swift */; };
-		A7C55CA71B6582B1004CE204 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C55CA61B6582B1004CE204 /* ViewController.swift */; };
+		A7C55CA71B6582B1004CE204 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C55CA61B6582B1004CE204 /* EditorViewController.swift */; };
 		A7C55CAA1B6582B1004CE204 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C55CA81B6582B1004CE204 /* Main.storyboard */; };
 		A7C55CAC1B6582B1004CE204 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C55CAB1B6582B1004CE204 /* Images.xcassets */; };
 		A7C55CAF1B6582B1004CE204 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7C55CAD1B6582B1004CE204 /* LaunchScreen.xib */; };
 		A7C55CBB1B6582B1004CE204 /* MemeMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C55CBA1B6582B1004CE204 /* MemeMeTests.swift */; };
+		A7F6ED261B8BCB7F001FEF1D /* SMTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F6ED251B8BCB7F001FEF1D /* SMTViewController.swift */; };
+		A7F9C18D1BD5C0AB00DBA481 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9C18C1BD5C0AB00DBA481 /* GridViewController.swift */; };
+		A7F9C18F1BD5C7DE00DBA481 /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9C18E1BD5C7DE00DBA481 /* MemeCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +30,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A7C196B91BFED7AA00D0B776 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		A7C55C9F1B6582B1004CE204 /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C55CA31B6582B1004CE204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7C55CA41B6582B1004CE204 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A7C55CA61B6582B1004CE204 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A7C55CA61B6582B1004CE204 /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		A7C55CA91B6582B1004CE204 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A7C55CAB1B6582B1004CE204 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A7C55CAE1B6582B1004CE204 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A7C55CB41B6582B1004CE204 /* MemeMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemeMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C55CB91B6582B1004CE204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7C55CBA1B6582B1004CE204 /* MemeMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMeTests.swift; sourceTree = "<group>"; };
+		A7F6ED251B8BCB7F001FEF1D /* SMTViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMTViewController.swift; sourceTree = "<group>"; };
+		A7F9C18C1BD5C0AB00DBA481 /* GridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
+		A7F9C18E1BD5C7DE00DBA481 /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +86,11 @@
 			isa = PBXGroup;
 			children = (
 				A7C55CA41B6582B1004CE204 /* AppDelegate.swift */,
-				A7C55CA61B6582B1004CE204 /* ViewController.swift */,
+				A7C196B91BFED7AA00D0B776 /* DetailView.swift */,
+				A7C55CA61B6582B1004CE204 /* EditorViewController.swift */,
+				A7F6ED251B8BCB7F001FEF1D /* SMTViewController.swift */,
+				A7F9C18C1BD5C0AB00DBA481 /* GridViewController.swift */,
+				A7F9C18E1BD5C7DE00DBA481 /* MemeCollectionViewCell.swift */,
 				A7C55CA81B6582B1004CE204 /* Main.storyboard */,
 				A7C55CAB1B6582B1004CE204 /* Images.xcassets */,
 				A7C55CAD1B6582B1004CE204 /* LaunchScreen.xib */,
@@ -156,6 +168,8 @@
 		A7C55C971B6582B1004CE204 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "James Jongs";
 				TargetAttributes = {
@@ -212,7 +226,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7C55CA71B6582B1004CE204 /* ViewController.swift in Sources */,
+				A7F9C18F1BD5C7DE00DBA481 /* MemeCollectionViewCell.swift in Sources */,
+				A7C196BA1BFED7AA00D0B776 /* DetailView.swift in Sources */,
+				A7F9C18D1BD5C0AB00DBA481 /* GridViewController.swift in Sources */,
+				A7F6ED261B8BCB7F001FEF1D /* SMTViewController.swift in Sources */,
+				A7C55CA71B6582B1004CE204 /* EditorViewController.swift in Sources */,
 				A7C55CA51B6582B1004CE204 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

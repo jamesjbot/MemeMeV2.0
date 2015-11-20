@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class EditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var topTextField: UITextField!
     
@@ -31,6 +31,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var utilizekeyboard: Bool = false
     
     var currentTextFieldBeingEdited = 0
+    
+    var currentTextField: UITextField!
     
     /**
     Organization of code blocks
@@ -66,21 +68,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     **/
     
     override func viewWillAppear(animated: Bool) {
+        print("subscribing to keyboardShow notifications")
         super.viewWillAppear(animated)
         subscribeToKeyboardShowNotifications()
+
     }
     
     
+
+    
     
     override func viewWillDisappear(animated: Bool) {
+        print("EditorViewController view will disappear called")
         super.viewWillDisappear(animated)
+        self.presentingViewController?.viewWillAppear(true)
     }
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("EditorViewController viewDidLoad()")
         
         // Assign a delegates to top and bottom textfield
         topTextField.delegate = self
@@ -96,7 +104,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     /// Resets the imageview, top and bottom textfield to their default values
     func initializeSurface(){
         // Configure initial share button
-        shareButton.enabled = false
+        //shareButton.enabled = false
         
         
         // Load messages for initial textfields
@@ -175,12 +183,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // Assign the function that should run when ActivityViewController completes
         controller.completionWithItemsHandler = {
-            (activity: String!, completed: Bool, items: [AnyObject]!, error: NSError!) -> Void in
+            
+            (s: String?, ok: Bool, items: [AnyObject]?, err:NSError?) -> Void in
+            
+            self.save()//Save is also dismissing the view controller
+            print("EditorViewController attempting to dismiss self.")
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        }
+        /*
+        controller.completionWithItemsHandler = {
+            (activity: String?, completed: Bool, items: [AnyObject]?, error: NSError?) -> Void in
             if completed {
-                self.save()
+                self.save()//Save is also dismissing the view controller
+                print("EditorViewController attempting to dismiss self.")
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
+        */
     }
     
     
@@ -229,7 +249,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     **/
     /// Present the new UIImage in the imageview
-    func imagePickerController(picker:  UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]){
+    func imagePickerController(picker:  UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]){
             // Verify that the image is a UIImage; if it is then show it
             if let image = info[UIImagePickerControllerOriginalImage] as? UIImage
             {
@@ -263,18 +283,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     **/
-    
-    func textField(textField: UITextField, shouldChangeCharactersInrange range: NSRange, replacemenString string: String) -> Bool {
+    // TODO Should I Delete this
+    /*func textField(textField: UITextField, shouldChangeCharactersInrange range: NSRange, replacemenString string: String) -> Bool {
         // Receive new text and replace text in textfield
-        var newText: NSString = textField.text
+        var newText: NSString = (textField.text)!
         return true
-    }
+    }*/
     
 
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         // Remember which textfield initiated the keyboard call
+        // TODO Delete the following line
+        print("Textfieldshouldbeginediting called")
+        
         currentTextFieldBeingEdited = textField.tag
+        
+        currentTextField = textField
+        
+        print("currentTextField assigned \(currentTextField.text)")
         
         // Sign up for keyboardWillHide notifications
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
@@ -286,6 +313,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         // When return is hit on the keyboard, dismiss the keyboard
+        print("return key hit")
         textField.resignFirstResponder()
         return true
     }
@@ -311,7 +339,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func getKeyboardHeight(notification:NSNotification) -> CGFloat {
         // Only save a keyboard height offset when the bottom textfield calls for a keyboard; 
         // (this function is guaranteed to happen AFTER textFieldShouldBeginEditing function is called)
-        if (currentTextFieldBeingEdited == 2) { // The bottomTextField is calling for a keyboard
+        print("The textfield yelling is \(currentTextFieldBeingEdited)")
+        if (currentTextField.text == bottomTextField.text) { // The bottomTextField is calling for a keyboard
             let userInfo = notification.userInfo
             let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue// of CGRect
             return keyboardSize.CGRectValue().height
@@ -323,12 +352,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     /// Moves the view up prior to presenting keyboard
     func keyboardWillShow(notification: NSNotification){
+        print("Keyboard will show called")
         // Get height of keyboard and save it globally
         myKeyboardHeight = getKeyboardHeight(notification)
         
         // Move the whole UIView up by the keyboard amount
-        view.frame.origin.y -= myKeyboardHeight
-        
+        print("\(view.frame.origin.y)")
+        self.view.frame.origin.y -= myKeyboardHeight
+        print("\(view.frame.origin.y)")
         // Stop responding to keyboard will SHOW notificaions
         unsubscribeFromKeyboardShowNotifications()
         
@@ -392,8 +423,38 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     /// Creates the Meme struct
     func save(){
         //Create the meme
-        var meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, originalimage: imagePickerView.image!, memedImage: generateMemedImage()
-        )
+        let meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, originalimage: imagePickerView.image!, memedImage: generateMemedImage())
+
+        // Add it to the memes array in the Application Delegate
+        let tempAppDel = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        print("----------->Of interest appDelegate has this many memes before append\(tempAppDel.memes.count)")
+        tempAppDel.memes.append(meme)
+        print("----------->Of interest appDelegate has this many memes after append \(tempAppDel.memes.count)")
+        print("------->Does the array have any entries \(tempAppDel.inquireMeme())")
+        print("Existence \(tempAppDel.doesMemeExist())")
+        print("Attempting to get SentMemesTableViewController")
+                print("Attempting to update stuff")
+        //self.presentingViewController?.viewWillAppear(true)
+        //let smt = self.presentingViewController as! SMTViewController
+        print("trying to reload data prior to dismissing")
+        //smt.myreloadData()
+        //self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        //let smtvc:SMTViewController = self.storyboard!.instantiateViewControllerWithIdentifier("SMTViewController") as! SMTViewController
+        
+        //print("Successfully got something")
+        //print("We have this many memes\(tempAppDel.inquireMeme())")
+        //vc.reloadInputViews()
+        //print("Calling smtvc to reloadData")
+        //let navigationController = self.navigationController
+        //println("Popping EditorViewController")
+        //navigationController!.popViewControllerAnimated(true)
+        //print("Finished Popping EditorViewController")
+        //smtvc.reloadData()
+        //self.presentingViewController.reload
+        // Trying to tell the presenting viewcontroller to dismiss this one
+        //println("this is the presenting view controller of the editor\(self.presentingViewController?.description)")
+        self.dismissViewControllerAnimated(true, completion: nil)
+        //self.presentViewController(smtvc, animated: true, completion: nil)
     }
     
     
@@ -418,6 +479,29 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
   
     
+    
+    /**
+
+    
+        UINavigationControllerDelegate Functions
+    
+    
+    **/
+    
+    /**
+    func navigationController(navigationController:willShowViewController,:   animated: Bool){
+        
+    
+    }
+    
+    
+    
+    
+    func navigationController(navigationController:didShowViewController:animated:){
+    
+    
+    }
+    **/
 } // End of ViewController Class
 
 
@@ -432,6 +516,5 @@ struct Meme {
     var bottomString: String
     var originalimage: UIImage
     var memedImage: UIImage
-    
 }
 
