@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A7C196BA1BFED7AA00D0B776 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C196B91BFED7AA00D0B776 /* DetailView.swift */; settings = {ASSET_TAGS = (); }; };
+		A79065D21C037965009A2732 /* Impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A79065D11C037965009A2732 /* Impact.ttf */; settings = {ASSET_TAGS = (); }; };
+		A7C196BA1BFED7AA00D0B776 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C196B91BFED7AA00D0B776 /* DetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		A7C55CA51B6582B1004CE204 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C55CA41B6582B1004CE204 /* AppDelegate.swift */; };
 		A7C55CA71B6582B1004CE204 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C55CA61B6582B1004CE204 /* EditorViewController.swift */; };
 		A7C55CAA1B6582B1004CE204 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C55CA81B6582B1004CE204 /* Main.storyboard */; };
@@ -30,7 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A7C196B91BFED7AA00D0B776 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		A79065D11C037965009A2732 /* Impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Impact.ttf; sourceTree = "<group>"; };
+		A7C196B91BFED7AA00D0B776 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A7C55C9F1B6582B1004CE204 /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C55CA31B6582B1004CE204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7C55CA41B6582B1004CE204 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,9 +66,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A79065D31C03799D009A2732 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A79065D11C037965009A2732 /* Impact.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		A7C55C961B6582B1004CE204 = {
 			isa = PBXGroup;
 			children = (
+				A79065D31C03799D009A2732 /* Resources */,
 				A7C55CA11B6582B1004CE204 /* MemeMe */,
 				A7C55CB71B6582B1004CE204 /* MemeMeTests */,
 				A7C55CA01B6582B1004CE204 /* Products */,
@@ -86,7 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				A7C55CA41B6582B1004CE204 /* AppDelegate.swift */,
-				A7C196B91BFED7AA00D0B776 /* DetailView.swift */,
+				A7C196B91BFED7AA00D0B776 /* DetailViewController.swift */,
 				A7C55CA61B6582B1004CE204 /* EditorViewController.swift */,
 				A7F6ED251B8BCB7F001FEF1D /* SMTViewController.swift */,
 				A7F9C18C1BD5C0AB00DBA481 /* GridViewController.swift */,
@@ -170,7 +181,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "James Jongs";
 				TargetAttributes = {
 					A7C55C9E1B6582B1004CE204 = {
@@ -206,6 +217,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A79065D21C037965009A2732 /* Impact.ttf in Resources */,
 				A7C55CAA1B6582B1004CE204 /* Main.storyboard in Resources */,
 				A7C55CAF1B6582B1004CE204 /* LaunchScreen.xib in Resources */,
 				A7C55CAC1B6582B1004CE204 /* Images.xcassets in Resources */,
@@ -227,7 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7F9C18F1BD5C7DE00DBA481 /* MemeCollectionViewCell.swift in Sources */,
-				A7C196BA1BFED7AA00D0B776 /* DetailView.swift in Sources */,
+				A7C196BA1BFED7AA00D0B776 /* DetailViewController.swift in Sources */,
 				A7F9C18D1BD5C0AB00DBA481 /* GridViewController.swift in Sources */,
 				A7F6ED261B8BCB7F001FEF1D /* SMTViewController.swift in Sources */,
 				A7C55CA71B6582B1004CE204 /* EditorViewController.swift in Sources */,
@@ -294,6 +306,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -360,6 +373,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MemeMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "JamesJongs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -370,6 +384,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MemeMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "JamesJongs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -388,6 +403,7 @@
 				);
 				INFOPLIST_FILE = MemeMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "JamesJongs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MemeMe.app/MemeMe";
 			};
@@ -403,6 +419,7 @@
 				);
 				INFOPLIST_FILE = MemeMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "JamesJongs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MemeMe.app/MemeMe";
 			};

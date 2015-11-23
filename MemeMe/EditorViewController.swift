@@ -34,6 +34,8 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     var currentTextField: UITextField!
     
+    var myMeme: Meme?
+    
     /**
     Organization of code blocks
 
@@ -68,18 +70,14 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     **/
     
     override func viewWillAppear(animated: Bool) {
-        print("subscribing to keyboardShow notifications")
         super.viewWillAppear(animated)
         subscribeToKeyboardShowNotifications()
 
     }
-    
-    
 
     
     
     override func viewWillDisappear(animated: Bool) {
-        print("EditorViewController view will disappear called")
         super.viewWillDisappear(animated)
         self.presentingViewController?.viewWillAppear(true)
     }
@@ -88,8 +86,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("EditorViewController viewDidLoad()")
-        
         // Assign a delegates to top and bottom textfield
         topTextField.delegate = self
         bottomTextField.delegate = self
@@ -97,7 +93,16 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         // Assign a delegate to imagePicker
         imagePicker.delegate = self
-        initializeSurface()
+        
+        
+        if myMeme != nil {
+            initializeSurface()
+            topTextField.text = myMeme?.topString
+            bottomTextField.text = myMeme?.bottomString
+            imagePickerView.image = myMeme?.originalimage
+        } else {
+            initializeSurface()
+        }
     }
     
     
@@ -121,7 +126,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         let memeTextAttributes = [
             NSStrokeColorAttributeName : UIColor.blackColor(),
             NSForegroundColorAttributeName : UIColor.whiteColor(),
-            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 36)!,
+            NSFontAttributeName : UIFont(name: "Impact", size: 36)!,
             NSStrokeWidthAttributeName : -5.0 //TODO: Fill in appropriate Float
         ]
         
@@ -187,7 +192,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
             (s: String?, ok: Bool, items: [AnyObject]?, err:NSError?) -> Void in
             
             self.save()//Save is also dismissing the view controller
-            print("EditorViewController attempting to dismiss self.")
             self.dismissViewControllerAnimated(true, completion: nil)
             
         }
@@ -293,15 +297,11 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        // Remember which textfield initiated the keyboard call
-        // TODO Delete the following line
-        print("Textfieldshouldbeginediting called")
+
         
         currentTextFieldBeingEdited = textField.tag
         
         currentTextField = textField
-        
-        print("currentTextField assigned \(currentTextField.text)")
         
         // Sign up for keyboardWillHide notifications
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
@@ -313,7 +313,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         // When return is hit on the keyboard, dismiss the keyboard
-        print("return key hit")
         textField.resignFirstResponder()
         return true
     }
@@ -339,7 +338,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     func getKeyboardHeight(notification:NSNotification) -> CGFloat {
         // Only save a keyboard height offset when the bottom textfield calls for a keyboard; 
         // (this function is guaranteed to happen AFTER textFieldShouldBeginEditing function is called)
-        print("The textfield yelling is \(currentTextFieldBeingEdited)")
         if (currentTextField.text == bottomTextField.text) { // The bottomTextField is calling for a keyboard
             let userInfo = notification.userInfo
             let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue// of CGRect
@@ -350,9 +348,9 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     
+    
     /// Moves the view up prior to presenting keyboard
     func keyboardWillShow(notification: NSNotification){
-        print("Keyboard will show called")
         // Get height of keyboard and save it globally
         myKeyboardHeight = getKeyboardHeight(notification)
         
@@ -422,39 +420,16 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     **/
     /// Creates the Meme struct
     func save(){
-        //Create the meme
-        let meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, originalimage: imagePickerView.image!, memedImage: generateMemedImage())
+        // Only save the meme if we have and image
+        //if let aimage = imagePickerView.image {
+            //Create the meme
+            let meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, originalimage: imagePickerView.image!, memedImage: generateMemedImage())
 
-        // Add it to the memes array in the Application Delegate
-        let tempAppDel = (UIApplication.sharedApplication().delegate as! AppDelegate)
-        print("----------->Of interest appDelegate has this many memes before append\(tempAppDel.memes.count)")
-        tempAppDel.memes.append(meme)
-        print("----------->Of interest appDelegate has this many memes after append \(tempAppDel.memes.count)")
-        print("------->Does the array have any entries \(tempAppDel.inquireMeme())")
-        print("Existence \(tempAppDel.doesMemeExist())")
-        print("Attempting to get SentMemesTableViewController")
-                print("Attempting to update stuff")
-        //self.presentingViewController?.viewWillAppear(true)
-        //let smt = self.presentingViewController as! SMTViewController
-        print("trying to reload data prior to dismissing")
-        //smt.myreloadData()
-        //self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
-        //let smtvc:SMTViewController = self.storyboard!.instantiateViewControllerWithIdentifier("SMTViewController") as! SMTViewController
-        
-        //print("Successfully got something")
-        //print("We have this many memes\(tempAppDel.inquireMeme())")
-        //vc.reloadInputViews()
-        //print("Calling smtvc to reloadData")
-        //let navigationController = self.navigationController
-        //println("Popping EditorViewController")
-        //navigationController!.popViewControllerAnimated(true)
-        //print("Finished Popping EditorViewController")
-        //smtvc.reloadData()
-        //self.presentingViewController.reload
-        // Trying to tell the presenting viewcontroller to dismiss this one
-        //println("this is the presenting view controller of the editor\(self.presentingViewController?.description)")
-        self.dismissViewControllerAnimated(true, completion: nil)
-        //self.presentViewController(smtvc, animated: true, completion: nil)
+            // Add it to the memes array in the Application Delegate
+            let tempAppDel = (UIApplication.sharedApplication().delegate as! AppDelegate)
+            tempAppDel.memes.append(meme)
+            self.dismissViewControllerAnimated(true, completion: nil)
+        //}
     }
     
     
@@ -478,30 +453,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         return memedImage
     }
   
-    
-    
-    /**
-
-    
-        UINavigationControllerDelegate Functions
-    
-    
-    **/
-    
-    /**
-    func navigationController(navigationController:willShowViewController,:   animated: Bool){
-        
-    
-    }
-    
-    
-    
-    
-    func navigationController(navigationController:didShowViewController:animated:){
-    
-    
-    }
-    **/
 } // End of ViewController Class
 
 

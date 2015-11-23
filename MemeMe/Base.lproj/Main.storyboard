@@ -43,7 +43,7 @@
                                             <rect key="frame" x="15" y="0.0" width="290" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -60,6 +60,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kL9-63-tqn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-360" y="-157"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="WCn-cZ-23R">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="76t-1i-hBR" customClass="DetailViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DAE-4S-pA9"/>
+                        <viewControllerLayoutGuide type="bottom" id="fBu-ZO-W16"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="km2-HE-6Wf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oT0-OB-vpO">
+                                <rect key="frame" x="0.0" y="28" width="320" height="540"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="oT0-OB-vpO" secondAttribute="trailing" constant="-20" id="4yS-cO-IWA"/>
+                            <constraint firstItem="fBu-ZO-W16" firstAttribute="top" secondItem="oT0-OB-vpO" secondAttribute="bottom" id="VlP-vG-2O3"/>
+                            <constraint firstItem="oT0-OB-vpO" firstAttribute="top" secondItem="DAE-4S-pA9" secondAttribute="bottom" constant="8" id="ddX-xq-EWQ"/>
+                            <constraint firstItem="oT0-OB-vpO" firstAttribute="leading" secondItem="km2-HE-6Wf" secondAttribute="leadingMargin" constant="-20" id="yvs-H1-lio"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailImageView" destination="oT0-OB-vpO" id="rim-fK-z2D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0e0-QI-jUI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="31" y="-158"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="U9a-fV-kL7">
