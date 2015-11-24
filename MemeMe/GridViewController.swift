@@ -42,9 +42,8 @@ class GridViewController : UICollectionViewController {
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSizeMake(dimension, dimension)
         
-        // The buttons for Edit and pullUpMemeEditor and description
+        // Set up the buttons for Edit and pullUpMemeEditor and description
         
-        //self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add,
             target: self,
             action: "pullUpMemeEditor")
@@ -59,7 +58,7 @@ class GridViewController : UICollectionViewController {
     }
     
     
-    
+    // Invoke the new meme editor
     func pullUpMemeEditor(){
         let evc = self.storyboard!.instantiateViewControllerWithIdentifier("EditorViewController") as! EditorViewController
         self.presentViewController(evc, animated: true, completion: nil)
@@ -89,7 +88,7 @@ class GridViewController : UICollectionViewController {
     
     
     
-    
+    // Bring up the Meme detail view
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
             myreloadData()
@@ -101,7 +100,7 @@ class GridViewController : UICollectionViewController {
     
     
     
-    
+    // Reload data
     func myreloadData(){
         let object = UIApplication.sharedApplication().delegate as! AppDelegate
         let appDelegate = object as AppDelegate
