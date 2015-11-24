@@ -123,6 +123,7 @@ class SMTViewController: UITableViewController {
         let appDelegate = object as AppDelegate
         memes = appDelegate.memes
         tableView.reloadData()
+        
         // Set the current selection to whatever the user last picked
         tableView.selectRowAtIndexPath(selection, animated: true, scrollPosition: UITableViewScrollPosition.Middle)
     }
@@ -137,17 +138,23 @@ class SMTViewController: UITableViewController {
     
     
     
+    // Always allow editable rows
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
     
     
-    
+    // Commit the delete function
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle:   UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            
+            // Remove from local model
             memes.removeAtIndex(indexPath.row)
+            
+            // Remove from UI
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation:UITableViewRowAnimation.Automatic)
 
+            // Remove from global model
             let object = UIApplication.sharedApplication().delegate as! AppDelegate
             let appDelegate = object as AppDelegate
             appDelegate.memes.removeAtIndex(indexPath.row)
