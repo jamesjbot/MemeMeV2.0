@@ -189,8 +189,8 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
             
             (s: String?, ok: Bool, items: [AnyObject]?, err:NSError?) -> Void in
             
-            save()//Save is also dismissing the view controller
-            dismissViewControllerAnimated(true, completion: nil)
+            self.save()//Save is also dismissing the view controller
+            self.dismissViewControllerAnimated(true, completion: nil)
             
         }
         
