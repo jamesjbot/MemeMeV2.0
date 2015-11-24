@@ -222,6 +222,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     
+    
     /// Selects an Image from the camera
     @IBAction func pickAnImageFromCamera (sender: AnyObject) {
         imagePicker.delegate = self
@@ -338,9 +339,8 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         myKeyboardHeight = getKeyboardHeight(notification)
         
         // Move the whole UIView up by the keyboard amount
-        print("\(view.frame.origin.y)")
         self.view.frame.origin.y -= myKeyboardHeight
-        print("\(view.frame.origin.y)")
+
         // Stop responding to keyboard will SHOW notificaions
         unsubscribeFromKeyboardShowNotifications()
         
