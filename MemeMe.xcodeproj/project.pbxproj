@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		A79065D21C037965009A2732 /* Impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A79065D11C037965009A2732 /* Impact.ttf */; settings = {ASSET_TAGS = (); }; };
+		A79065DC1C03F451009A2732 /* collection_30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = A79065D61C03F451009A2732 /* collection_30x30.png */; settings = {ASSET_TAGS = (); }; };
+		A79065DD1C03F451009A2732 /* collection_60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = A79065D71C03F451009A2732 /* collection_60x60.png */; settings = {ASSET_TAGS = (); }; };
+		A79065DE1C03F451009A2732 /* table_90x90.png in Resources */ = {isa = PBXBuildFile; fileRef = A79065D81C03F451009A2732 /* table_90x90.png */; settings = {ASSET_TAGS = (); }; };
+		A79065DF1C03F451009A2732 /* table_30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = A79065D91C03F451009A2732 /* table_30x30.png */; settings = {ASSET_TAGS = (); }; };
+		A79065E01C03F451009A2732 /* table_60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = A79065DA1C03F451009A2732 /* table_60x60.png */; settings = {ASSET_TAGS = (); }; };
+		A79065E11C03F451009A2732 /* collection_90x90.png in Resources */ = {isa = PBXBuildFile; fileRef = A79065DB1C03F451009A2732 /* collection_90x90.png */; settings = {ASSET_TAGS = (); }; };
 		A7C196BA1BFED7AA00D0B776 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C196B91BFED7AA00D0B776 /* DetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		A7C55CA51B6582B1004CE204 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C55CA41B6582B1004CE204 /* AppDelegate.swift */; };
 		A7C55CA71B6582B1004CE204 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C55CA61B6582B1004CE204 /* EditorViewController.swift */; };
@@ -32,6 +38,12 @@
 
 /* Begin PBXFileReference section */
 		A79065D11C037965009A2732 /* Impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Impact.ttf; sourceTree = "<group>"; };
+		A79065D61C03F451009A2732 /* collection_30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collection_30x30.png; sourceTree = "<group>"; };
+		A79065D71C03F451009A2732 /* collection_60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collection_60x60.png; sourceTree = "<group>"; };
+		A79065D81C03F451009A2732 /* table_90x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = table_90x90.png; sourceTree = "<group>"; };
+		A79065D91C03F451009A2732 /* table_30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = table_30x30.png; sourceTree = "<group>"; };
+		A79065DA1C03F451009A2732 /* table_60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = table_60x60.png; sourceTree = "<group>"; };
+		A79065DB1C03F451009A2732 /* collection_90x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collection_90x90.png; sourceTree = "<group>"; };
 		A7C196B91BFED7AA00D0B776 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A7C55C9F1B6582B1004CE204 /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C55CA31B6582B1004CE204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,6 +89,12 @@
 		A7C55C961B6582B1004CE204 = {
 			isa = PBXGroup;
 			children = (
+				A79065D61C03F451009A2732 /* collection_30x30.png */,
+				A79065D71C03F451009A2732 /* collection_60x60.png */,
+				A79065D81C03F451009A2732 /* table_90x90.png */,
+				A79065D91C03F451009A2732 /* table_30x30.png */,
+				A79065DA1C03F451009A2732 /* table_60x60.png */,
+				A79065DB1C03F451009A2732 /* collection_90x90.png */,
 				A79065D31C03799D009A2732 /* Resources */,
 				A7C55CA11B6582B1004CE204 /* MemeMe */,
 				A7C55CB71B6582B1004CE204 /* MemeMeTests */,
@@ -218,9 +236,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A79065D21C037965009A2732 /* Impact.ttf in Resources */,
+				A79065DD1C03F451009A2732 /* collection_60x60.png in Resources */,
+				A79065DE1C03F451009A2732 /* table_90x90.png in Resources */,
 				A7C55CAA1B6582B1004CE204 /* Main.storyboard in Resources */,
 				A7C55CAF1B6582B1004CE204 /* LaunchScreen.xib in Resources */,
+				A79065E11C03F451009A2732 /* collection_90x90.png in Resources */,
+				A79065DC1C03F451009A2732 /* collection_30x30.png in Resources */,
 				A7C55CAC1B6582B1004CE204 /* Images.xcassets in Resources */,
+				A79065DF1C03F451009A2732 /* table_30x30.png in Resources */,
+				A79065E01C03F451009A2732 /* table_60x60.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +395,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				INFOPLIST_FILE = MemeMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "JamesJongs.$(PRODUCT_NAME:rfc1034identifier)";
@@ -382,6 +407,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				INFOPLIST_FILE = MemeMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "JamesJongs.$(PRODUCT_NAME:rfc1034identifier)";

@@ -10,7 +10,7 @@
         <scene sceneID="8Zo-6K-1Tw">
             <objects>
                 <navigationController id="j1b-HP-D64" userLabel="TableView UINavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Table View" id="sxr-jK-M0V"/>
+                    <tabBarItem key="tabBarItem" title="Table View" image="table_30x30.png" id="sxr-jK-M0V"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cen-Cc-jOp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -116,7 +116,7 @@
         <scene sceneID="yT0-sa-CcK">
             <objects>
                 <navigationController id="wem-T4-TGq" userLabel="Grid View" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Grid View" id="zMv-MA-Wjh"/>
+                    <tabBarItem key="tabBarItem" title="Grid View" image="collection_30x30.png" id="zMv-MA-Wjh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YQX-Fv-UJo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -286,4 +286,8 @@
             <point key="canvasLocation" x="-1299" y="-471"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="collection_30x30.png" width="30" height="30"/>
+        <image name="table_30x30.png" width="30" height="30"/>
+    </resources>
 </document>
