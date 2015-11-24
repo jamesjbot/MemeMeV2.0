@@ -36,6 +36,9 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     var myMeme: Meme?
     
+    
+    
+    
     /**
     Organization of code blocks
 
@@ -54,9 +57,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         Saving memes and memed image functions
     **/
 
-
-    
-    
     
     
     
@@ -86,7 +86,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Assign a delegates to top and bottom textfield
+        // Assign delegates to top and bottom textfield
         topTextField.delegate = self
         bottomTextField.delegate = self
     
@@ -94,23 +94,20 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Assign a delegate to imagePicker
         imagePicker.delegate = self
         
-        
+        // Clear screen and initialize text attributes
+        initializeSurface()
+        // If we are loading from a previous made Meme; populate the premade values
         if myMeme != nil {
-            initializeSurface()
             topTextField.text = myMeme?.topString
             bottomTextField.text = myMeme?.bottomString
             imagePickerView.image = myMeme?.originalimage
-        } else {
-            initializeSurface()
         }
     }
     
     
+    
     /// Resets the imageview, top and bottom textfield to their default values
     func initializeSurface(){
-        // Configure initial share button
-        //shareButton.enabled = false
-        
         
         // Load messages for initial textfields
         topTextField.text = "TOP"
@@ -259,7 +256,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
             {
                 imagePickerView.image = image
                 imagePickerView.contentMode = UIViewContentMode.ScaleAspectFill
-                
+    
                 // Now that we have an image available; allow sharebutton
                 shareButton.enabled = true
             }
@@ -287,12 +284,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     **/
-    // TODO Should I Delete this
-    /*func textField(textField: UITextField, shouldChangeCharactersInrange range: NSRange, replacemenString string: String) -> Bool {
-        // Receive new text and replace text in textfield
-        var newText: NSString = (textField.text)!
-        return true
-    }*/
     
 
     
@@ -420,16 +411,29 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     **/
     /// Creates the Meme struct
     func save(){
-        // Only save the meme if we have and image
-        //if let aimage = imagePickerView.image {
-            //Create the meme
-            let meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, originalimage: imagePickerView.image!, memedImage: generateMemedImage())
 
+ 
+        if imagePickerView.image != nil { // Case: If we have an image selected
+            
+            let meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, originalimage: imagePickerView.image!, memedImage: generateMemedImage())
+            
             // Add it to the memes array in the Application Delegate
             let tempAppDel = (UIApplication.sharedApplication().delegate as! AppDelegate)
             tempAppDel.memes.append(meme)
             self.dismissViewControllerAnimated(true, completion: nil)
-        //}
+            
+        } else { // Case: where we want to save the text
+            
+            let meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, originalimage: nil, memedImage: generateMemedImage())
+            
+            // Add it to the memes array in the Application Delegate
+            let tempAppDel = (UIApplication.sharedApplication().delegate as! AppDelegate)
+            tempAppDel.memes.append(meme)
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+            
+        }
+        
     }
     
     
@@ -465,7 +469,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
 struct Meme {
     var topString: String
     var bottomString: String
-    var originalimage: UIImage
+    var originalimage: UIImage?
     var memedImage: UIImage
 }
 
