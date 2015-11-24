@@ -403,28 +403,22 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     **/
     /// Creates the Meme struct
     func save(){
-
- 
+        let meme: Meme!
         if imagePickerView.image != nil { // Case: If we have an image selected
             
-            let meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, originalimage: imagePickerView.image!, memedImage: generateMemedImage())
-            
-            // Add it to the memes array in the Application Delegate
-            let tempAppDel = (UIApplication.sharedApplication().delegate as! AppDelegate)
-            tempAppDel.memes.append(meme)
-            self.dismissViewControllerAnimated(true, completion: nil)
+            meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, originalimage: imagePickerView.image!, memedImage: generateMemedImage())
+
             
         } else { // Case: where we want to save the text
             
-            let meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, originalimage: nil, memedImage: generateMemedImage())
-            
-            // Add it to the memes array in the Application Delegate
-            let tempAppDel = (UIApplication.sharedApplication().delegate as! AppDelegate)
-            tempAppDel.memes.append(meme)
-            self.dismissViewControllerAnimated(true, completion: nil)
-            
-            
+            meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, originalimage: nil, memedImage: generateMemedImage())
+
         }
+        
+        // Add it to the memes array in the Application Delegate
+        let tempAppDel = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        tempAppDel.memes.append(meme)
+        self.dismissViewControllerAnimated(true, completion: nil)
         
     }
     
