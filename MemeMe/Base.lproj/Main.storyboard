@@ -82,6 +82,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="oT0-OB-vpO" secondAttribute="trailing" constant="-20" id="4yS-cO-IWA"/>
                             <constraint firstItem="fBu-ZO-W16" firstAttribute="top" secondItem="oT0-OB-vpO" secondAttribute="bottom" id="VlP-vG-2O3"/>
                             <constraint firstItem="oT0-OB-vpO" firstAttribute="top" secondItem="DAE-4S-pA9" secondAttribute="bottom" constant="8" id="ddX-xq-EWQ"/>
+                            <constraint firstItem="oT0-OB-vpO" firstAttribute="top" secondItem="DAE-4S-pA9" secondAttribute="bottom" constant="-20" id="soh-8i-1bQ"/>
                             <constraint firstItem="oT0-OB-vpO" firstAttribute="leading" secondItem="km2-HE-6Wf" secondAttribute="leadingMargin" constant="-20" id="yvs-H1-lio"/>
                         </constraints>
                     </view>
