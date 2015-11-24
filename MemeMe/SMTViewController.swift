@@ -41,7 +41,7 @@ class SMTViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // The buttons for Edit and pullUpMemeEditor
+        // Setup the buttons for editExistingMeme and pullUpMemeEditor
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.Plain, target: self, action: "editExistingMeme")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add,
@@ -62,7 +62,6 @@ class SMTViewController: UITableViewController {
         // Only edit if something is selected
         if let someindexrow = tableView.indexPathForSelectedRow?.row {
             let evc = self.storyboard!.instantiateViewControllerWithIdentifier("EditorViewController") as! EditorViewController
-            //evc.myMeme = memes[(selection?.row)!]
             evc.myMeme = memes[someindexrow]
             self.presentViewController(evc, animated: true, completion: nil)
         }
@@ -104,12 +103,13 @@ class SMTViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         // A Cell was selected call up the detail view of the cell or show the meme
-        myreloadData()
+        // Mark the TableViewCell
+        tableView.selectRowAtIndexPath(selection, animated: true, scrollPosition: UITableViewScrollPosition.Middle)
+        
         // Save the userselection
         selection = indexPath
         
-        //Todo set the user selection
-        
+        // Bring up the detail view of the meme
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as? DetailViewController
         detailController?.myMeme = self.memes[indexPath.row]
         self.navigationController!.pushViewController(detailController!, animated: true)
@@ -117,11 +117,13 @@ class SMTViewController: UITableViewController {
 
     
     
+    // Function to reload all data from global meme data
     func myreloadData(){
         let object = UIApplication.sharedApplication().delegate as! AppDelegate
         let appDelegate = object as AppDelegate
         memes = appDelegate.memes
         tableView.reloadData()
+        // Set the current selection to whatever the user last picked
         tableView.selectRowAtIndexPath(selection, animated: true, scrollPosition: UITableViewScrollPosition.Middle)
     }
 
