@@ -22,7 +22,7 @@ class DetailViewController: UIViewController{
     // Function needed to correctly fill this screen with image
     override func viewWillAppear(animate: Bool){
         
-        detailImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        detailImageView.contentMode = UIViewContentMode.ScaleAspectFit
         detailImageView.image = myMeme.memedImage
 
     }
