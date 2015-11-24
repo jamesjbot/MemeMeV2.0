@@ -94,6 +94,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Assign a delegate to imagePicker
         imagePicker.delegate = self
         
+        
         // Clear screen and initialize text attributes
         initializeSurface()
         // If we are loading from a previous made Meme; populate the premade values
@@ -192,16 +193,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
             self.dismissViewControllerAnimated(true, completion: nil)
             
         }
-        /*
-        controller.completionWithItemsHandler = {
-            (activity: String?, completed: Bool, items: [AnyObject]?, error: NSError?) -> Void in
-            if completed {
-                self.save()//Save is also dismissing the view controller
-                print("EditorViewController attempting to dismiss self.")
-                self.dismissViewControllerAnimated(true, completion: nil)
-            }
-        }
-        */
+        
     }
     
     
