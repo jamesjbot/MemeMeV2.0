@@ -43,11 +43,11 @@ class SMTViewController: UITableViewController {
         
         // Setup the buttons for editExistingMeme and pullUpMemeEditor
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.Plain, target: self, action: "editExistingMeme")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add,
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.Plain, target: self, action: "editExistingMeme")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add,
             target: self,
             action: "pullUpMemeEditor")
-        self.navigationItem.title = "Sent Memes"
+        navigationItem.title = "Sent Memes"
         
         // Load global application data
         let object = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -61,17 +61,17 @@ class SMTViewController: UITableViewController {
     func editExistingMeme(){
         // Only edit if something is selected
         if let someindexrow = tableView.indexPathForSelectedRow?.row {
-            let evc = self.storyboard!.instantiateViewControllerWithIdentifier("EditorViewController") as! EditorViewController
+            let evc = storyboard!.instantiateViewControllerWithIdentifier("EditorViewController") as! EditorViewController
             evc.myMeme = memes[someindexrow]
-            self.presentViewController(evc, animated: true, completion: nil)
+            presentViewController(evc, animated: true, completion: nil)
         }
     }
     
     
     
     func pullUpMemeEditor(){
-        let evc = self.storyboard!.instantiateViewControllerWithIdentifier("EditorViewController") as! EditorViewController
-        self.presentViewController(evc, animated: true, completion: nil)
+        let evc = storyboard!.instantiateViewControllerWithIdentifier("EditorViewController") as! EditorViewController
+        presentViewController(evc, animated: true, completion: nil)
     }
     
     
@@ -110,9 +110,9 @@ class SMTViewController: UITableViewController {
         selection = indexPath
         
         // Bring up the detail view of the meme
-        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as? DetailViewController
-        detailController?.myMeme = self.memes[indexPath.row]
-        self.navigationController!.pushViewController(detailController!, animated: true)
+        let detailController = storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as? DetailViewController
+        detailController?.myMeme = memes[indexPath.row]
+        navigationController!.pushViewController(detailController!, animated: true)
     }
 
     

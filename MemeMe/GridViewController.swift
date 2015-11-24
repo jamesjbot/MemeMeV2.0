@@ -44,10 +44,10 @@ class GridViewController : UICollectionViewController {
         
         // Set up the buttons for Edit and pullUpMemeEditor and description
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add,
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add,
             target: self,
             action: "pullUpMemeEditor")
-        self.navigationItem.title = "Sent Memes"
+        navigationItem.title = "Sent Memes"
         
         //Pull in the shared data model on initial loading
         
@@ -60,8 +60,8 @@ class GridViewController : UICollectionViewController {
     
     // Invoke the new meme editor
     func pullUpMemeEditor(){
-        let evc = self.storyboard!.instantiateViewControllerWithIdentifier("EditorViewController") as! EditorViewController
-        self.presentViewController(evc, animated: true, completion: nil)
+        let evc = storyboard!.instantiateViewControllerWithIdentifier("EditorViewController") as! EditorViewController
+        presentViewController(evc, animated: true, completion: nil)
     }
     
     
@@ -92,9 +92,9 @@ class GridViewController : UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
             myreloadData()
-            let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as? DetailViewController
-            detailController?.myMeme = self.memes[indexPath.row]
-            self.navigationController!.pushViewController(detailController!, animated: true)
+            let detailController = storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as? DetailViewController
+            detailController?.myMeme = memes[indexPath.row]
+            navigationController!.pushViewController(detailController!, animated: true)
             
     }
     

@@ -79,7 +79,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.presentingViewController?.viewWillAppear(true)
+        presentingViewController?.viewWillAppear(true)
     }
     
     
@@ -189,8 +189,8 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
             
             (s: String?, ok: Bool, items: [AnyObject]?, err:NSError?) -> Void in
             
-            self.save()//Save is also dismissing the view controller
-            self.dismissViewControllerAnimated(true, completion: nil)
+            save()//Save is also dismissing the view controller
+            dismissViewControllerAnimated(true, completion: nil)
             
         }
         
@@ -339,7 +339,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         myKeyboardHeight = getKeyboardHeight(notification)
         
         // Move the whole UIView up by the keyboard amount
-        self.view.frame.origin.y -= myKeyboardHeight
+        view.frame.origin.y -= myKeyboardHeight
 
         // Stop responding to keyboard will SHOW notificaions
         unsubscribeFromKeyboardShowNotifications()
@@ -418,7 +418,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Add it to the memes array in the Application Delegate
         let tempAppDel = (UIApplication.sharedApplication().delegate as! AppDelegate)
         tempAppDel.memes.append(meme)
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
         
     }
     
