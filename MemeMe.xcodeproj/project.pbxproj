@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A785EF211C042539006B5392 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785EF201C042539006B5392 /* Meme.swift */; settings = {ASSET_TAGS = (); }; };
 		A79065D21C037965009A2732 /* Impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A79065D11C037965009A2732 /* Impact.ttf */; settings = {ASSET_TAGS = (); }; };
 		A79065DC1C03F451009A2732 /* collection_30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = A79065D61C03F451009A2732 /* collection_30x30.png */; settings = {ASSET_TAGS = (); }; };
 		A79065DD1C03F451009A2732 /* collection_60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = A79065D71C03F451009A2732 /* collection_60x60.png */; settings = {ASSET_TAGS = (); }; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A785EF201C042539006B5392 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		A79065D11C037965009A2732 /* Impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Impact.ttf; sourceTree = "<group>"; };
 		A79065D61C03F451009A2732 /* collection_30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collection_30x30.png; sourceTree = "<group>"; };
 		A79065D71C03F451009A2732 /* collection_60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collection_60x60.png; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				A7C55CAB1B6582B1004CE204 /* Images.xcassets */,
 				A7C55CAD1B6582B1004CE204 /* LaunchScreen.xib */,
 				A7C55CA21B6582B1004CE204 /* Supporting Files */,
+				A785EF201C042539006B5392 /* Meme.swift */,
 			);
 			path = MemeMe;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				A7F9C18F1BD5C7DE00DBA481 /* MemeCollectionViewCell.swift in Sources */,
 				A7C196BA1BFED7AA00D0B776 /* DetailViewController.swift in Sources */,
+				A785EF211C042539006B5392 /* Meme.swift in Sources */,
 				A7F9C18D1BD5C0AB00DBA481 /* GridViewController.swift in Sources */,
 				A7F6ED261B8BCB7F001FEF1D /* SMTViewController.swift in Sources */,
 				A7C55CA71B6582B1004CE204 /* EditorViewController.swift in Sources */,

@@ -200,7 +200,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     /// The target of the Cancel Button; reinitializes the base page
     @IBAction func cancel(sender: AnyObject) {
-        initializeSurface()
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
 
@@ -445,17 +445,4 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
   
 } // End of ViewController Class
 
-
-
-
-
-
-
-// The Meme class
-struct Meme {
-    var topString: String
-    var bottomString: String
-    var originalimage: UIImage?
-    var memedImage: UIImage
-}
 
