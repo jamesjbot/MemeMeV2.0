@@ -189,8 +189,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
             
             (s: String?, ok: Bool, items: [AnyObject]?, err:NSError?) -> Void in
             
-            self.save()//Save is also dismissing the view controller
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.save()
             
         }
         
@@ -248,8 +247,8 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
             if let image = info[UIImagePickerControllerOriginalImage] as? UIImage
             {
                 imagePickerView.image = image
-                imagePickerView.contentMode = UIViewContentMode.ScaleAspectFill
-    
+                imagePickerView.contentMode = UIViewContentMode.ScaleAspectFit
+                
                 // Now that we have an image available; allow sharebutton
                 shareButton.enabled = true
             }
@@ -418,8 +417,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Add it to the memes array in the Application Delegate
         let tempAppDel = (UIApplication.sharedApplication().delegate as! AppDelegate)
         tempAppDel.memes.append(meme)
-        dismissViewControllerAnimated(true, completion: nil)
-        
+
     }
     
     
@@ -433,6 +431,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Render view to an image
         UIGraphicsBeginImageContext(view.frame.size)
         view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
+
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
@@ -443,6 +442,40 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         return memedImage
     }
   
+    
+    
+    /** 
+
+
+        UI Gesturerecognizer functions
+
+    **/
+
+    
+    @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
+        
+        let translationamount = recognizer.translationInView(view)
+        
+        if let view = recognizer.view {
+            view.center = CGPoint(x:view.center.x + translationamount.x,
+                y:view.center.y + translationamount.y)
+        }
+        recognizer.setTranslation(CGPointZero, inView: view)
+    }
+    
+    @IBAction func handlePinch(recognizer : UIPinchGestureRecognizer) {
+        if let localview = recognizer.view {
+
+            localview.transform = CGAffineTransformScale(localview.transform,
+                recognizer.scale, recognizer.scale)
+            recognizer.scale = 1
+
+        }
+        recognizer.view?.center = view.center // Reposition the center of the image otherwise sometimes it will be off the screen unrecoverable
+    }
+    
+    
+    
 } // End of ViewController Class
 
 
