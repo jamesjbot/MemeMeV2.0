@@ -36,7 +36,13 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     var myMeme: Meme?
     
-    
+    // Setting Font Attributes
+    let memeTextAttributes = [
+        NSStrokeColorAttributeName : UIColor.blackColor(),
+        NSForegroundColorAttributeName : UIColor.whiteColor(),
+        NSFontAttributeName : UIFont(name: "Impact", size: 36)!,
+        NSStrokeWidthAttributeName : -5.0 //TODO: Fill in appropriate Float
+    ]
     
     
     /**
@@ -115,38 +121,8 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         bottomTextField.text = "BOTTOM"
         
         
-        // Center align text (this must go after text is set otherwise it will not center text
-        topTextField.textAlignment = NSTextAlignment.Center
-        bottomTextField.textAlignment = NSTextAlignment.Center
-        
-        
-        // Setting Font Attributes
-        let memeTextAttributes = [
-            NSStrokeColorAttributeName : UIColor.blackColor(),
-            NSForegroundColorAttributeName : UIColor.whiteColor(),
-            NSFontAttributeName : UIFont(name: "Impact", size: 36)!,
-            NSStrokeWidthAttributeName : -5.0 //TODO: Fill in appropriate Float
-        ]
-        
-        
-        // Apply fonts to textfields
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        
-        
-        // Center align text (this must go after textAttributes are set otherwse it will not center text)
-        topTextField.textAlignment = NSTextAlignment.Center
-        bottomTextField.textAlignment = NSTextAlignment.Center
-        
-        
-        // Settextfields FontSize to Adjust automatically depending on length of string
-        topTextField.adjustsFontSizeToFitWidth = true
-        bottomTextField.adjustsFontSizeToFitWidth = true
-        
-        
-        // Set textfields to always capitalize
-        topTextField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
-        bottomTextField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
+        initializeTextFields(topTextField)
+        initializeTextFields(bottomTextField)
         
         
         // Set Image to nothing
@@ -157,6 +133,19 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
     
+    func initializeTextFields(editingTextField: UITextField){
+        // Apply fonts to textfields
+        editingTextField.defaultTextAttributes = memeTextAttributes
+        
+        // Center align text (this must go after textAttributes are set otherwse it will not center text)
+        editingTextField.textAlignment = NSTextAlignment.Center
+        
+        // Settextfields FontSize to Adjust automatically depending on length of string
+        editingTextField.adjustsFontSizeToFitWidth = true
+        
+        // Set textfields to always capitalize
+        editingTextField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
+    }
 
     
 
@@ -289,6 +278,10 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Sign up for keyboardWillHide notifications
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
 
+        
+        // Always fix the font of the textfield as sometimes it defaults out.
+        initializeTextFields(currentTextField)
+        
         return true
     }
     
