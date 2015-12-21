@@ -34,6 +34,8 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     var currentTextField: UITextField!
     
+    let BOTTOMTEXTFIELDID = 2
+    
     var myMeme: Meme?
     
     // Setting Font Attributes
@@ -314,7 +316,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     func getKeyboardHeight(notification:NSNotification) -> CGFloat {
         // Only save a keyboard height offset when the bottom textfield calls for a keyboard; 
         // (this function is guaranteed to happen AFTER textFieldShouldBeginEditing function is called)
-        if (currentTextField.text == bottomTextField.text) { // The bottomTextField is calling for a keyboard
+        if (currentTextField.tag == BOTTOMTEXTFIELDID) { // The bottomTextField is calling for a keyboard
             let userInfo = notification.userInfo
             let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue// of CGRect
             return keyboardSize.CGRectValue().height
