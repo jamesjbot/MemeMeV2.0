@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2Ud-h8-NxX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2Ud-h8-NxX">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -188,8 +188,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ek0-L9-hgA">
-                                <rect key="frame" x="0.0" y="20" width="320" height="553"/>
+                            <imageView clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" restorationIdentifier="restoredimageview" translatesAutoresizingMaskIntoConstraints="NO" id="ek0-L9-hgA">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="YuK-AM-x2L" appends="YES" id="MMp-Bx-Wbx"/>
@@ -258,6 +258,41 @@
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="XWr-Ut-Iot"/>
                                 </items>
                             </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gp7-Tk-j79">
+                                <rect key="frame" x="137" y="345" width="46" height="30"/>
+                                <state key="normal" title="down"/>
+                                <connections>
+                                    <action selector="movedown:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="VK8-Fo-fL6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkU-oQ-hWE">
+                                <rect key="frame" x="63" y="383" width="195" height="30"/>
+                                <state key="normal" title="Tell me about UIImageView"/>
+                                <connections>
+                                    <action selector="imageViewLocation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8Et-cj-LZ6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJb-8m-O9a">
+                                <rect key="frame" x="20" y="345" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="moveleft:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Vhh-b4-bnl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gjw-tq-5c0">
+                                <rect key="frame" x="258" y="345" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="moveright:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="a83-ah-sc9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwA-ry-f5Q">
+                                <rect key="frame" x="137" y="307" width="46" height="30"/>
+                                <state key="normal" title="up"/>
+                                <connections>
+                                    <action selector="moveup:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="WNL-98-qmc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
