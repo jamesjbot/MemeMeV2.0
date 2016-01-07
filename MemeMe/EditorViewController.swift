@@ -80,6 +80,11 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
 // looks like i have to save the scaling and translation factors and then reapply them to the center
     }
     
+    @IBAction func centerImage(sender: AnyObject){
+        print("Centering image")
+        imagePickerView.center = view.center
+        imagePickerView.setNeedsDisplay()
+    }
     
     @IBAction func moveup(sender: AnyObject) {
         imagePickerView.center.y = imagePickerView.center.y - 50

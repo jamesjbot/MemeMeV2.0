@@ -254,45 +254,16 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="dvo-26-8Em"/>
+                                    <barButtonItem title="Center" id="0SF-bW-ARh">
+                                        <connections>
+                                            <action selector="centerImage:" destination="vXZ-lx-hvc" id="aTb-xn-xmJ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="1vK-bs-fQY"/>
                                     <barButtonItem style="plain" systemItem="camera" id="UOC-Zn-zTr"/>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="XWr-Ut-Iot"/>
                                 </items>
                             </toolbar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gp7-Tk-j79">
-                                <rect key="frame" x="137" y="345" width="46" height="30"/>
-                                <state key="normal" title="down"/>
-                                <connections>
-                                    <action selector="movedown:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="VK8-Fo-fL6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkU-oQ-hWE">
-                                <rect key="frame" x="63" y="383" width="195" height="30"/>
-                                <state key="normal" title="Tell me about UIImageView"/>
-                                <connections>
-                                    <action selector="imageViewLocation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8Et-cj-LZ6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJb-8m-O9a">
-                                <rect key="frame" x="20" y="345" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="moveleft:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Vhh-b4-bnl"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gjw-tq-5c0">
-                                <rect key="frame" x="258" y="345" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="moveright:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="a83-ah-sc9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwA-ry-f5Q">
-                                <rect key="frame" x="137" y="307" width="46" height="30"/>
-                                <state key="normal" title="up"/>
-                                <connections>
-                                    <action selector="moveup:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="WNL-98-qmc"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
