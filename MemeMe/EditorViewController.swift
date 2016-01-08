@@ -354,51 +354,23 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     /// Moves the view up prior to presenting keyboard
     func keyboardWillShow(notification: NSNotification){
-
-        /**
-        //Disable autoresizingMask again
-        imagePickerView.autoresizingMask = UIViewAutoresizing.None
-
-        imageViewLocation(self)
-        //Disable autoresizingMask again
-        imagePickerView.autoresizingMask = UIViewAutoresizing.None
-        // Save the current scaled trasnformation
-        scaledTransform = imagePickerView.transform
-        
-        // Save the current centerPoint
-        centerPoint = imagePickerView.center
-
-        // Set transform back to identity
-        //imagePickerView.transform = CGAffineTransformIdentity
-        //print("I should be identity now")
-        imageViewLocation(self)
-        **/
-        
         
         // Get height of keyboard and save it globally
         myKeyboardHeight = getKeyboardHeight(notification)
         
+        
         // Move the whole UIView up by the keyboard amount
-        //view.frame.origin.y -= myKeyboardHeight
-        //topTextField.transform = CGAffineTransformMakeTranslation(0, -myKeyboardHeight)
         if myKeyboardHeight != 0 {
             bottomTextField.transform = CGAffineTransformMakeTranslation(0,-myKeyboardHeight)
-            print(imagePickerView.transform)
-            scaledTransform = imagePickerView.transform
-            imagePickerView.transform = CGAffineTransformConcat(imagePickerView.transform,CGAffineTransformMakeTranslation(0, -myKeyboardHeight))
-            print(imagePickerView.transform)
         }
+        
+        
         // Stop responding to keyboard will SHOW notificaions
         unsubscribeFromKeyboardShowNotifications()
         
+        
         // Begin to respond to keyboard will HIDE notifications
         subscribeToKeyboardHideNotifications()
-        
-        
-        // Rescale Image
-        //imagePickerView.transform = scaledTransform!
-        //print("setting ui centerpoint to be ",CGPointMake(centerPoint!.x,centerPoint!.y - myKeyboardHeight))
-        //imagePickerView.center = CGPointMake(centerPoint!.x,centerPoint!.y - myKeyboardHeight)
     }
     
     
@@ -406,20 +378,10 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     func keyboardWillHide(notification: NSNotification){
         imagePickerView.autoresizingMask = UIViewAutoresizing.None
 
-        /// Move the whole UIView down by the keyboard amount
-        //view.frame.origin.y = 0.0
-        print("Moving down by keyboard height ", myKeyboardHeight)
-        //topTextField.transform = CGAffineTransformMakeTranslation(0, myKeyboardHeight)
+        /// Move the bottomTextFiled UIView down by the keyboard amount
         if myKeyboardHeight != 0 {
-            //topTextField.transform = CGAffineTransformMakeTranslation(0, myKeyboardHeight)
             bottomTextField.transform = CGAffineTransformMakeTranslation(0, 0)
-        print(imagePickerView.transform)
-        imagePickerView.transform = scaledTransform!
-            print(imagePickerView.transform)
         }
-        //Print junk command below
-        //imagePickerView.center = centerPoint!
-        
         
         unsubscribeFromKeyboardHideNotifications()
         subscribeToKeyboardShowNotifications()
