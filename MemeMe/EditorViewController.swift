@@ -72,11 +72,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     **/
 
 
-    
-    @IBAction func centerImage(sender: AnyObject){
-        imagePickerView.center = view.center
-        imagePickerView.setNeedsDisplay()
-    }
+
     
     /**
 
@@ -337,6 +333,16 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     **/
+     
+     
+     //Function to center the image
+    @IBAction func centerImage(sender: AnyObject){
+        imagePickerView.center = view.center
+        imagePickerView.setNeedsDisplay()
+    }
+    
+    
+    
     /// Generates a keyboard height for the bottom textfield, generates 0 for top textfield
     func getKeyboardHeight(notification:NSNotification) -> CGFloat {
         // Only save a keyboard height offset when the bottom textfield calls for a keyboard; 

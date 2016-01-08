@@ -26,5 +26,25 @@ class DetailViewController: UIViewController{
         detailImageView.image = myMeme.memedImage
 
     }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Setup the buttons for editExistingMeme and pullUpMemeEditor
+        
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.Plain,
+            target: self,
+            action: "editExistingMeme")
+    }
+    
+    
+    func editExistingMeme(){
+            let evc = storyboard!.instantiateViewControllerWithIdentifier("EditorViewController") as! EditorViewController
+            evc.myMeme = myMeme!
+            presentViewController(evc, animated: true, completion: nil)
+
+    }
+    
 
 }
