@@ -53,6 +53,8 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     /**
     Organization of code blocks
+     
+        Centering image code
 
         Starting to load main ViewController and initializations functions
     
@@ -69,74 +71,12 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         Saving memes and memed image functions
     **/
 
-    @IBAction func movedown(sender: AnyObject) {
-        print("the transform is",CGAffineTransformIsIdentity(imagePickerView.transform))
-        //imagePickerView.transform = CGAffineTransformIdentity
-                print("the transform is",CGAffineTransformIsIdentity(imagePickerView.transform))
-            //imagePickerView.center.y = imagePickerView.center.y + 50
-        //view.frame.origin.y = view.frame.origin.y + 50
-            //imagePickerView.autoresizingMask = UIViewAutoresizing.None
-        print("imageviewautoresizingmask",imagePickerView.autoresizingMask.rawValue)
-// looks like i have to save the scaling and translation factors and then reapply them to the center
-    }
+
     
     @IBAction func centerImage(sender: AnyObject){
-        print("Centering image")
         imagePickerView.center = view.center
         imagePickerView.setNeedsDisplay()
     }
-    
-    @IBAction func moveup(sender: AnyObject) {
-        imagePickerView.center.y = imagePickerView.center.y - 50
-        //view.frame.origin.y = view.frame.origin.y - 50
-    }
-    
-    @IBAction func moveleft(sender: AnyObject) {
-            imagePickerView.center.x = imagePickerView.center.x - 50
-    }
-    
-    @IBAction func moveright(sender: AnyObject) {
-                imagePickerView.center.x = imagePickerView.center.x + 50
-    }
-    
-    @IBAction func imageViewLocation(sender: AnyObject) {
-        print("Center Coordinates",imagePickerView.center)
-        print("Origin Coordinates",imagePickerView.frame.origin)
-        print("Frame Size",imagePickerView.frame.width,"x",imagePickerView.frame.height)
-        print("View Bounds(size)",imagePickerView.bounds)
-        print("Transform ",imagePickerView.transform)
-        print(" ")
-        
-        //Save the transform before it moves
-        //Set back to identify
-        //Move the UIImageView
-        //Reset the original scale transform
-        
-        
-        
-    }
-
-    /**
-    
-    override func viewWillLayoutSubviews() {
-        print("view will layout subview")
-                imageViewLocation(self)
-        //viewWillLayoutSubviews()
-                imageViewLocation(self)
-        print("exiting view will layout subviews\n")
-    }
-    
-    override func viewDidLayoutSubviews() {
-        
-        print("view did layout subviews keyboard height",myKeyboardHeight,"position",centerPoint)
-                imageViewLocation(self)
-        //viewDidLayoutSubviews()
-        //imagePickerView.center = CGPointMake(centerPoint!.x,centerPoint!.y - myKeyboardHeight)
-                imageViewLocation(self)
-        print("exiting view did layout subview\n")
-    }
-    
-    **/
     
     /**
 
@@ -147,7 +87,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     **/
     
     override func viewWillAppear(animated: Bool) {
-        print("Viewwillappear")
         super.viewWillAppear(animated)
         subscribeToKeyboardShowNotifications()
 
@@ -156,7 +95,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     override func viewWillDisappear(animated: Bool) {
-        print("viewwilldisappear")
         super.viewWillDisappear(animated)
         presentingViewController?.viewWillAppear(true)
     }
@@ -164,7 +102,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     override func viewDidLoad() {
-        print("viewdidload")
         super.viewDidLoad()
         
         view.autoresizingMask = UIViewAutoresizing.FlexibleTopMargin
@@ -216,6 +153,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
     
+    //Function to initialize textfield attributes
     func initializeTextFields(editingTextField: UITextField){
         // Apply fonts to textfields
         editingTextField.defaultTextAttributes = memeTextAttributes
@@ -357,9 +295,8 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         
-        print("\nTextfieldshouldbeginediting")
-        imagePickerView.autoresizingMask = UIViewAutoresizing.None
-
+        //Disable autoresigin on imagePickerView and subviews
+        //imagePickerView.autoresizingMask = UIViewAutoresizing.None
         
         currentTextFieldBeingEdited = textField.tag
         
@@ -371,8 +308,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         // Always fix the font of the textfield as sometimes it defaults out.
         initializeTextFields(currentTextField)
-        
-        print("Exiting textfield should begin editing")
         
         return true
     }
@@ -419,10 +354,13 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     /// Moves the view up prior to presenting keyboard
     func keyboardWillShow(notification: NSNotification){
+
+        /**
+        //Disable autoresizingMask again
         imagePickerView.autoresizingMask = UIViewAutoresizing.None
 
-        print("keyboard will show")
         imageViewLocation(self)
+        //Disable autoresizingMask again
         imagePickerView.autoresizingMask = UIViewAutoresizing.None
         // Save the current scaled trasnformation
         scaledTransform = imagePickerView.transform
@@ -434,6 +372,8 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         //imagePickerView.transform = CGAffineTransformIdentity
         //print("I should be identity now")
         imageViewLocation(self)
+        **/
+        
         
         // Get height of keyboard and save it globally
         myKeyboardHeight = getKeyboardHeight(notification)
@@ -459,9 +399,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         //imagePickerView.transform = scaledTransform!
         //print("setting ui centerpoint to be ",CGPointMake(centerPoint!.x,centerPoint!.y - myKeyboardHeight))
         //imagePickerView.center = CGPointMake(centerPoint!.x,centerPoint!.y - myKeyboardHeight)
-        
-        imageViewLocation(self)
-        print("exiting keyboardwillshow\n")
     }
     
     
@@ -480,7 +417,10 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         imagePickerView.transform = scaledTransform!
             print(imagePickerView.transform)
         }
-        imagePickerView.center = centerPoint!
+        //Print junk command below
+        //imagePickerView.center = centerPoint!
+        
+        
         unsubscribeFromKeyboardHideNotifications()
         subscribeToKeyboardShowNotifications()
     }
