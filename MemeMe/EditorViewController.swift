@@ -100,20 +100,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        //TODO delete line below?
-        view.autoresizingMask = UIViewAutoresizing.FlexibleTopMargin
-        
-        //TODO delete line below
-        self.view.autoresizesSubviews = false
-        
-        //TODO delete line below
-        //centerPoint = imagePickerView.center
-        
-        //TODO delete line below
-        imagePickerView.autoresizingMask = UIViewAutoresizing.FlexibleHeight
-        
-        
         // Assign delegates to top and bottom textfield
         topTextField.delegate = self
         bottomTextField.delegate = self
@@ -206,10 +192,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
             // Only save if the share command was successful
             if (ok){
                 self.save()
-            } else {
-                print("Save attempt aborted")
             }
-            
         }
         
     }
