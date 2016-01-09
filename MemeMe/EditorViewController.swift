@@ -100,9 +100,17 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        //TODO delete line below?
         view.autoresizingMask = UIViewAutoresizing.FlexibleTopMargin
+        
+        //TODO delete line below
         self.view.autoresizesSubviews = false
+        
+        //TODO delete line below
         //centerPoint = imagePickerView.center
+        
+        //TODO delete line below
         imagePickerView.autoresizingMask = UIViewAutoresizing.FlexibleHeight
         
         
@@ -127,10 +135,8 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     
-    /// Resets the imageview, top and bottom textfield to their default values
+    // Resets the imageview, top and bottom textfield to their default values
     func initializeSurface(){
-        
-        
         
         // Load messages for initial textfields
         topTextField.text = "TOP"
@@ -149,7 +155,8 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
     
-    //Function to initialize textfield attributes
+    
+    // Function to initialize textfield attributes
     func initializeTextFields(editingTextField: UITextField){
         // Apply fonts to textfields
         editingTextField.defaultTextAttributes = memeTextAttributes
@@ -173,7 +180,8 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     
     **/
-    /// The target of the Share Action button; will bring up the ActivityViewController to share the memedimage
+     
+    // The target of the Share Action button; will bring up the ActivityViewController to share the memedimage
     @IBAction func share(){
         // Generate a memed image
         // Create a local variable for instantian of a UIImage
@@ -194,8 +202,13 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         controller.completionWithItemsHandler = {
             
             (s: String?, ok: Bool, items: [AnyObject]?, err:NSError?) -> Void in
-            // testing add block for ok
-            self.save()
+            
+            // Only save if the share command was successful
+            if (ok){
+                self.save()
+            } else {
+                print("Save attempt aborted")
+            }
             
         }
         
