@@ -128,7 +128,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
         
-        
+        // Set attributes of textfields
         initializeTextFields(topTextField)
         initializeTextFields(bottomTextField)
         
@@ -170,7 +170,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     // The target of the Share Action button; will bring up the ActivityViewController to share the memedimage
     @IBAction func share(){
         // Generate a memed image
-        // Create a local variable for instantian of a UIImage
+        // Create a local variable for instantiation of a UIImage
         let image = generateMemedImage()
         
         
@@ -198,14 +198,12 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     
-    
     /// The target of the Cancel Button; reinitializes the base page
     @IBAction func cancel(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
 
-    
     
     
     
@@ -245,15 +243,15 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     **/
     /// Present the new UIImage in the imageview
     func imagePickerController(picker:  UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]){
+
             // Verify that the image is a UIImage; if it is then show it
             if let image = info[UIImagePickerControllerOriginalImage] as? UIImage
             {
-                imagePickerView.image = image
                 imagePickerView.frame.size.height = 548
                 imagePickerView.frame.size.width = 320
-                imagePickerView.contentMode = UIViewContentMode.ScaleAspectFit
-                
+                imagePickerView.image = image
 
+                imagePickerView.contentMode = UIViewContentMode.ScaleAspectFit
                 
                 // Now that we have an image available; allow sharebutton
                 shareButton.enabled = true
@@ -286,9 +284,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        
-        //Disable autoresigin on imagePickerView and subviews
-        //imagePickerView.autoresizingMask = UIViewAutoresizing.None
         
         currentTextFieldBeingEdited = textField.tag
         
@@ -333,6 +328,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
      
      //Function to center the image
     @IBAction func centerImage(sender: AnyObject){
+        
         imagePickerView.center = view.center
         imagePickerView.setNeedsDisplay()
     }
@@ -341,6 +337,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     /// Generates a keyboard height for the bottom textfield, generates 0 for top textfield
     func getKeyboardHeight(notification:NSNotification) -> CGFloat {
+        
         // Only save a keyboard height offset when the bottom textfield calls for a keyboard; 
         // (this function is guaranteed to happen AFTER textFieldShouldBeginEditing function is called)
         if (currentTextField.tag == BOTTOMTEXTFIELDID) { // The bottomTextField is calling for a keyboard
@@ -378,7 +375,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     /// Moves the view down when the keyboard is dismissed
     func keyboardWillHide(notification: NSNotification){
-        imagePickerView.autoresizingMask = UIViewAutoresizing.None
 
         /// Move the bottomTextFiled UIView down by the keyboard amount
         if myKeyboardHeight != 0 {
@@ -474,8 +470,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         return memedImage
     }
-  
-    
+
     
     /** 
 
