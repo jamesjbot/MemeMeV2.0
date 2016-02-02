@@ -112,6 +112,7 @@ class SMTViewController: UITableViewController {
         // Bring up the detail view of the meme
         let detailController = storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as? DetailViewController
         detailController?.myMeme = memes[indexPath.row]
+        detailController?.position = indexPath.row
         navigationController!.pushViewController(detailController!, animated: true)
     }
 

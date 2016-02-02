@@ -94,6 +94,7 @@ class GridViewController : UICollectionViewController {
             myreloadData()
             let detailController = storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as? DetailViewController
             detailController?.myMeme = memes[indexPath.row]
+            detailController?.position = indexPath.row
             navigationController!.pushViewController(detailController!, animated: true)
             
     }

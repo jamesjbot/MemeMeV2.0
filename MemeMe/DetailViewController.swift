@@ -15,6 +15,8 @@ class DetailViewController: UIViewController{
     @IBOutlet weak var detailImageView: UIImageView!
 
     var myMeme: Meme!
+    var position: Int!
+    
     
     
     
@@ -32,8 +34,10 @@ class DetailViewController: UIViewController{
         super.viewDidLoad()
         
         // Setup the buttons for editExistingMeme
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.Plain,
-            target: self,action: "editExistingMeme")
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.Plain,
+            target: self,action: "editExistingMeme"),
+        UIBarButtonItem(title: "Delete", style: UIBarButtonItemStyle.Plain, target: self, action: "deleteExistingMeme")]
+
     }
     
     
@@ -44,5 +48,8 @@ class DetailViewController: UIViewController{
             presentViewController(evc, animated: true, completion: nil)
     }
     
-
+    func deleteExistingMeme(){
+        UIApplication.sharedApplication()
+    
+    }
 }
