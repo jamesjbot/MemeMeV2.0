@@ -18,10 +18,13 @@ class SMTViewController: UITableViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        let object = UIApplication.sharedApplication().delegate as! AppDelegate
-        let appDelegate = object as AppDelegate
-        memes = appDelegate.memes
+        //let object = UIApplication.sharedApplication().delegate as! AppDelegate
+        //let appDelegate = object as AppDelegate
+        //memes = appDelegate.memes
         myreloadData()
+
+
+        
     }
     
     
@@ -106,7 +109,7 @@ class SMTViewController: UITableViewController {
         // Mark the TableViewCell
         tableView.selectRowAtIndexPath(selection, animated: true, scrollPosition: UITableViewScrollPosition.Middle)
         
-        // Save the userselection
+        // Save the user selection
         selection = indexPath
         
         // Bring up the detail view of the meme
@@ -119,14 +122,18 @@ class SMTViewController: UITableViewController {
     
     
     // Function to reload all data from global meme data
-    func myreloadData(){
+    func myreloadData() {
         let object = UIApplication.sharedApplication().delegate as! AppDelegate
         let appDelegate = object as AppDelegate
         memes = appDelegate.memes
         tableView.reloadData()
         
-        // Set the current selection to whatever the user last picked
-        tableView.selectRowAtIndexPath(selection, animated: true, scrollPosition: UITableViewScrollPosition.Middle)
+        // If memes exist, Set the current selection to whatever the user last picked
+        let memeexist: Bool = memes.count > 0
+        
+        if memeexist {
+            tableView.selectRowAtIndexPath(selection, animated: true, scrollPosition: UITableViewScrollPosition.Middle)
+        }
     }
 
     

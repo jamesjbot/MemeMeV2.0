@@ -34,8 +34,12 @@ class DetailViewController: UIViewController{
         super.viewDidLoad()
         
         // Setup the buttons for editExistingMeme
+        let fixedspace: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
+        fixedspace.width = 80.0
+        
         navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.Plain,
             target: self,action: "editExistingMeme"),
+            fixedspace,
         UIBarButtonItem(title: "Delete", style: UIBarButtonItemStyle.Plain, target: self, action: "deleteExistingMeme")]
 
     }
@@ -49,7 +53,12 @@ class DetailViewController: UIViewController{
     }
     
     func deleteExistingMeme(){
-        UIApplication.sharedApplication()
+        let object = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate = object as AppDelegate
+        appDelegate.memes.removeAtIndex(position)
+        navigationController?.popToRootViewControllerAnimated(true)
+    
+        
     
     }
 }
