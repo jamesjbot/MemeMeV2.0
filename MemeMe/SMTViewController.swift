@@ -18,13 +18,7 @@ class SMTViewController: UITableViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        //let object = UIApplication.sharedApplication().delegate as! AppDelegate
-        //let appDelegate = object as AppDelegate
-        //memes = appDelegate.memes
         myreloadData()
-
-
-        
     }
     
     
@@ -63,6 +57,7 @@ class SMTViewController: UITableViewController {
     
     func editExistingMeme(){
         // Only edit if something is selected
+        
         if let someindexrow = tableView.indexPathForSelectedRow?.row {
             let evc = storyboard!.instantiateViewControllerWithIdentifier("EditorViewController") as! EditorViewController
             evc.myMeme = memes[someindexrow]
