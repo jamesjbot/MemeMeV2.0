@@ -353,7 +353,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         // Move the whole UIView up by the keyboard amount
         if myKeyboardHeight != 0 {
-            bottomTextField.transform = CGAffineTransformMakeTranslation(0,-myKeyboardHeight)
+            view.transform = CGAffineTransformMakeTranslation(0,-myKeyboardHeight)
         }
         
         
@@ -371,7 +371,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
 
         // Move the bottomTextFiled UIView down by the keyboard amount
         if myKeyboardHeight != 0 {
-            bottomTextField.transform = CGAffineTransformMakeTranslation(0, 0)
+            view.transform = CGAffineTransformMakeTranslation(0, 0)
         }
         
         unsubscribeFromKeyboardHideNotifications()
