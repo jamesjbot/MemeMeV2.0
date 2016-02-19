@@ -196,7 +196,7 @@
                                 </connections>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="12F-Uh-rBB">
-                                <rect key="frame" x="16" y="444" width="288" height="30"/>
+                                <rect key="frame" x="16" y="464" width="288" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Bottom">
@@ -230,19 +230,6 @@
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="tDb-Pf-R89"/>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" placeholderIntrinsicWidth="288" placeholderIntrinsicHeight="30" contentHorizontalAlignment="center" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="26r-2a-EZS">
-                                <rect key="frame" x="16" y="124" width="288" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Top">
-                                        <attributes>
-                                            <font key="NSFont" metaFont="smallSystem"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                            </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="bottom" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2cO-Wc-mAP">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
@@ -263,24 +250,37 @@
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="XWr-Ut-Iot"/>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="288" placeholderIntrinsicHeight="30" contentHorizontalAlignment="center" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="26r-2a-EZS">
+                                <rect key="frame" x="12" y="92" width="288" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Top">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="smallSystem"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="26r-2a-EZS" firstAttribute="top" secondItem="nhi-pm-NuB" secondAttribute="bottom" constant="60" id="1Hm-gQ-E1e"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ek0-L9-hgA" secondAttribute="bottom" id="3R4-w9-Efw"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="2cO-Wc-mAP" secondAttribute="bottom" id="4dI-ss-d9Y"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ek0-L9-hgA" secondAttribute="trailing" constant="-20" id="Ahf-d6-5vh"/>
                             <constraint firstItem="2cO-Wc-mAP" firstAttribute="leading" secondItem="ek0-L9-hgA" secondAttribute="leading" id="Bxz-7H-yg8"/>
                             <constraint firstAttribute="centerX" secondItem="nhi-pm-NuB" secondAttribute="centerX" id="C2V-HO-3F3"/>
+                            <constraint firstItem="26r-2a-EZS" firstAttribute="top" secondItem="nhi-pm-NuB" secondAttribute="bottom" constant="30" id="DF9-Vc-aA4"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="2cO-Wc-mAP" secondAttribute="bottom" id="EfG-ux-wFj"/>
                             <constraint firstItem="ek0-L9-hgA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="L6t-WM-Mqg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nhi-pm-NuB" secondAttribute="trailing" constant="-20" id="O6C-NW-BAZ"/>
                             <constraint firstItem="12F-Uh-rBB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="QdZ-D4-fhn"/>
                             <constraint firstItem="26r-2a-EZS" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Qdz-Rh-pA8"/>
                             <constraint firstItem="26r-2a-EZS" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Rck-MG-ety"/>
+                            <constraint firstItem="2cO-Wc-mAP" firstAttribute="top" secondItem="12F-Uh-rBB" secondAttribute="bottom" constant="30" id="SIy-8W-X0O"/>
                             <constraint firstItem="ek0-L9-hgA" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="WAg-uq-2ZU"/>
-                            <constraint firstItem="2cO-Wc-mAP" firstAttribute="top" secondItem="12F-Uh-rBB" secondAttribute="bottom" constant="50" id="bz8-p9-GRM"/>
                             <constraint firstItem="nhi-pm-NuB" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="cjC-uX-mci"/>
                             <constraint firstItem="nhi-pm-NuB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="eUH-rq-PQT"/>
                             <constraint firstItem="12F-Uh-rBB" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="sO7-P3-jYf"/>
