@@ -53,7 +53,7 @@ class SMTViewController: UITableViewController {
 
     }
 
-    
+    // MARK: - Edit existing meme code
     
     func editExistingMeme(){
         // Only edit if something is selected
@@ -75,7 +75,7 @@ class SMTViewController: UITableViewController {
     
     
     
-    // MARK: Table View Data Source
+    // MARK: - Table View Data Source
     
     
     
@@ -138,7 +138,7 @@ class SMTViewController: UITableViewController {
         Deletion functions
 
     **/
-    
+    // MARK: - Deletion functions
     
     
     // Always allow editable rows

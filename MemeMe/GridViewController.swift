@@ -58,13 +58,15 @@ class GridViewController : UICollectionViewController {
     }
     
     
-    // Invoke the new meme editor
+    // MARK: - Meme editor methods
+    
     func pullUpMemeEditor(){
         let evc = storyboard!.instantiateViewControllerWithIdentifier("EditorViewController") as! EditorViewController
         presentViewController(evc, animated: true, completion: nil)
     }
     
     
+    // MARK: - Data source methods
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let localmemes = memes {
@@ -74,7 +76,6 @@ class GridViewController : UICollectionViewController {
         }
         
     }
-    
     
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
