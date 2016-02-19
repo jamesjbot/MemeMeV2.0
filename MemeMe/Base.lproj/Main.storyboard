@@ -212,7 +212,7 @@
                                     <action selector="touchInsideBottomText:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="FDi-Wj-aVX"/>
                                 </connections>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nhi-pm-NuB">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nhi-pm-NuB">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <items>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="21A-RU-0Qf"/>
@@ -230,7 +230,7 @@
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="tDb-Pf-R89"/>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" placeholderIntrinsicWidth="288" placeholderIntrinsicHeight="30" contentHorizontalAlignment="center" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="26r-2a-EZS">
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" placeholderIntrinsicWidth="288" placeholderIntrinsicHeight="30" contentHorizontalAlignment="center" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="26r-2a-EZS">
                                 <rect key="frame" x="16" y="124" width="288" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
@@ -267,7 +267,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="2cO-Wc-mAP" secondAttribute="trailing" constant="-16" id="1lk-WN-8w2"/>
+                            <constraint firstItem="26r-2a-EZS" firstAttribute="top" secondItem="nhi-pm-NuB" secondAttribute="bottom" constant="60" id="1Hm-gQ-E1e"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ek0-L9-hgA" secondAttribute="bottom" id="3R4-w9-Efw"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="2cO-Wc-mAP" secondAttribute="bottom" id="4dI-ss-d9Y"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ek0-L9-hgA" secondAttribute="trailing" constant="-20" id="Ahf-d6-5vh"/>
@@ -275,14 +275,16 @@
                             <constraint firstAttribute="centerX" secondItem="nhi-pm-NuB" secondAttribute="centerX" id="C2V-HO-3F3"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="2cO-Wc-mAP" secondAttribute="bottom" id="EfG-ux-wFj"/>
                             <constraint firstItem="ek0-L9-hgA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="L6t-WM-Mqg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nhi-pm-NuB" secondAttribute="trailing" constant="-20" id="O6C-NW-BAZ"/>
                             <constraint firstItem="12F-Uh-rBB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="QdZ-D4-fhn"/>
                             <constraint firstItem="26r-2a-EZS" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Qdz-Rh-pA8"/>
                             <constraint firstItem="26r-2a-EZS" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Rck-MG-ety"/>
                             <constraint firstItem="ek0-L9-hgA" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="WAg-uq-2ZU"/>
                             <constraint firstItem="2cO-Wc-mAP" firstAttribute="top" secondItem="12F-Uh-rBB" secondAttribute="bottom" constant="50" id="bz8-p9-GRM"/>
-                            <constraint firstItem="2cO-Wc-mAP" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="lIU-48-CFG"/>
+                            <constraint firstItem="nhi-pm-NuB" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="cjC-uX-mci"/>
+                            <constraint firstItem="nhi-pm-NuB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="eUH-rq-PQT"/>
                             <constraint firstItem="12F-Uh-rBB" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="sO7-P3-jYf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="nhi-pm-NuB" secondAttribute="trailing" constant="-16" id="wT0-bP-Q6U"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2cO-Wc-mAP" secondAttribute="trailing" constant="-20" id="xzt-HD-012"/>
                         </constraints>
                     </view>
                     <connections>
