@@ -247,8 +247,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
             // Verify that the image is a UIImage; if it is then show it
             if let image = info[UIImagePickerControllerOriginalImage] as? UIImage
             {
-                imagePickerView.frame.size.height = 548
-                imagePickerView.frame.size.width = 320
+                
                 imagePickerView.image = image
 
                 imagePickerView.contentMode = UIViewContentMode.ScaleAspectFit

@@ -187,7 +187,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" restorationIdentifier="restoredimageview" translatesAutoresizingMaskIntoConstraints="NO" id="ek0-L9-hgA">
+                            <imageView clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="restoredimageview" translatesAutoresizingMaskIntoConstraints="NO" id="ek0-L9-hgA">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -243,7 +243,7 @@
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="2cO-Wc-mAP">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="bottom" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2cO-Wc-mAP">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="jCB-7g-iBu"/>
@@ -268,13 +268,17 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="2cO-Wc-mAP" secondAttribute="trailing" constant="-16" id="1lk-WN-8w2"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ek0-L9-hgA" secondAttribute="bottom" id="3R4-w9-Efw"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="2cO-Wc-mAP" secondAttribute="bottom" id="4dI-ss-d9Y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ek0-L9-hgA" secondAttribute="trailing" constant="-20" id="Ahf-d6-5vh"/>
                             <constraint firstItem="2cO-Wc-mAP" firstAttribute="leading" secondItem="ek0-L9-hgA" secondAttribute="leading" id="Bxz-7H-yg8"/>
                             <constraint firstAttribute="centerX" secondItem="nhi-pm-NuB" secondAttribute="centerX" id="C2V-HO-3F3"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="2cO-Wc-mAP" secondAttribute="bottom" id="EfG-ux-wFj"/>
+                            <constraint firstItem="ek0-L9-hgA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="L6t-WM-Mqg"/>
                             <constraint firstItem="12F-Uh-rBB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="QdZ-D4-fhn"/>
                             <constraint firstItem="26r-2a-EZS" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Qdz-Rh-pA8"/>
                             <constraint firstItem="26r-2a-EZS" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Rck-MG-ety"/>
+                            <constraint firstItem="ek0-L9-hgA" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="WAg-uq-2ZU"/>
                             <constraint firstItem="2cO-Wc-mAP" firstAttribute="top" secondItem="12F-Uh-rBB" secondAttribute="bottom" constant="50" id="bz8-p9-GRM"/>
                             <constraint firstItem="2cO-Wc-mAP" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="lIU-48-CFG"/>
                             <constraint firstItem="12F-Uh-rBB" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="sO7-P3-jYf"/>
