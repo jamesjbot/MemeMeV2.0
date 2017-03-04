@@ -1,5 +1,0 @@
-version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
-options: "09c8693313a97606f7602f47b3619187"
-build_time: [536315067, 486556000]
-inputs:
-  "/Users/jamesjongs/Desktop/Projects/MemeMeV2.0/MemeMeTests/MemeMeTests.swift": [529974068, 0]
