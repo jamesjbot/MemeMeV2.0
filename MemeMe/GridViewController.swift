@@ -17,9 +17,9 @@ class GridViewController : UICollectionViewController {
     
     
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let object = UIApplication.sharedApplication().delegate as! AppDelegate
+        let object = UIApplication.shared.delegate as! AppDelegate
         let appDelegate = object as AppDelegate
         memes = appDelegate.memes
         myreloadData()
@@ -27,7 +27,7 @@ class GridViewController : UICollectionViewController {
     
     
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         myreloadData()
     }
@@ -40,18 +40,18 @@ class GridViewController : UICollectionViewController {
         let dimension: CGFloat = (view.frame.size.width - (2*space))/3
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
-        flowLayout.itemSize = CGSizeMake(dimension, dimension)
+        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
         
         // Set up the buttons for Edit and pullUpMemeEditor and description
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add,
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,
             target: self,
-            action: "pullUpMemeEditor")
+            action: #selector(GridViewController.pullUpMemeEditor))
         navigationItem.title = "Sent Memes"
         
         //Pull in the shared data model on initial loading
         
-        let object = UIApplication.sharedApplication().delegate as! AppDelegate
+        let object = UIApplication.shared.delegate as! AppDelegate
         let appDelegate = object as AppDelegate
         memes = appDelegate.memes
         
@@ -61,14 +61,14 @@ class GridViewController : UICollectionViewController {
     // MARK: - Meme editor methods
     
     func pullUpMemeEditor(){
-        let evc = storyboard!.instantiateViewControllerWithIdentifier("EditorViewController") as! EditorViewController
-        presentViewController(evc, animated: true, completion: nil)
+        let evc = storyboard!.instantiateViewController(withIdentifier: "EditorViewController") as! EditorViewController
+        present(evc, animated: true, completion: nil)
     }
     
     
     // MARK: - Data source methods
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let localmemes = memes {
             return localmemes.count
         } else {
@@ -78,10 +78,10 @@ class GridViewController : UICollectionViewController {
     }
     
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CustomMemeCell", forIndexPath: indexPath) as! MemeCollectionViewCell
-        let meme = memes[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomMemeCell", for: indexPath) as! MemeCollectionViewCell
+        let meme = memes[(indexPath as NSIndexPath).item]
         let imageView = UIImageView(image: meme.memedImage)
         cell.backgroundView = imageView
         return cell
@@ -90,12 +90,12 @@ class GridViewController : UICollectionViewController {
     
     
     // Bring up the Meme detail view
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
             myreloadData()
-            let detailController = storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as? DetailViewController
-            detailController?.myMeme = memes[indexPath.row]
-            detailController?.position = indexPath.row
+            let detailController = storyboard!.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
+            detailController?.myMeme = memes[(indexPath as NSIndexPath).row]
+            detailController?.position = (indexPath as NSIndexPath).row
             navigationController!.pushViewController(detailController!, animated: true)
             
     }
@@ -104,7 +104,7 @@ class GridViewController : UICollectionViewController {
     
     // Reload data
     func myreloadData(){
-        let object = UIApplication.sharedApplication().delegate as! AppDelegate
+        let object = UIApplication.shared.delegate as! AppDelegate
         let appDelegate = object as AppDelegate
         memes = appDelegate.memes
         collectionView?.reloadData()

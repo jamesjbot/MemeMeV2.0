@@ -21,9 +21,9 @@ class DetailViewController: UIViewController{
     
     
     // Function needed to correctly fill this screen with image
-    override func viewWillAppear(animate: Bool){
+    override func viewWillAppear(_ animate: Bool){
         
-        detailImageView.contentMode = UIViewContentMode.ScaleAspectFit
+        detailImageView.contentMode = UIViewContentMode.scaleAspectFit
         detailImageView.image = myMeme.memedImage
 
     }
@@ -34,29 +34,29 @@ class DetailViewController: UIViewController{
         super.viewDidLoad()
         
         // Setup the buttons for editExistingMeme
-        let fixedspace: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
+        let fixedspace: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.fixedSpace, target: nil, action: nil)
         fixedspace.width = 80.0
         
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.Plain,
-            target: self,action: "editExistingMeme"),
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain,
+            target: self,action: #selector(DetailViewController.editExistingMeme)),
             fixedspace,
-        UIBarButtonItem(title: "Delete", style: UIBarButtonItemStyle.Plain, target: self, action: "deleteExistingMeme")]
+        UIBarButtonItem(title: "Delete", style: UIBarButtonItemStyle.plain, target: self, action: #selector(DetailViewController.deleteExistingMeme))]
 
     }
     
     
     
     func editExistingMeme(){
-            let evc = storyboard!.instantiateViewControllerWithIdentifier("EditorViewController") as! EditorViewController
+            let evc = storyboard!.instantiateViewController(withIdentifier: "EditorViewController") as! EditorViewController
             evc.myMeme = myMeme!
-            presentViewController(evc, animated: true, completion: nil)
+            present(evc, animated: true, completion: nil)
     }
     
     func deleteExistingMeme(){
-        let object = UIApplication.sharedApplication().delegate as! AppDelegate
+        let object = UIApplication.shared.delegate as! AppDelegate
         let appDelegate = object as AppDelegate
-        appDelegate.memes.removeAtIndex(position)
-        navigationController?.popToRootViewControllerAnimated(true)
+        appDelegate.memes.remove(at: position)
+        navigationController?.popToRootViewController(animated: true)
     
         
     

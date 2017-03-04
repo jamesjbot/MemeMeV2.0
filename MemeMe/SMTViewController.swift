@@ -14,22 +14,23 @@ class SMTViewController: UITableViewController {
     
     // Shared data model for memes
     var memes: [Meme]! = []
-    var selection: NSIndexPath?
+    var selection: IndexPath?
     
-    override func viewDidAppear(animated: Bool) {
+    
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         myreloadData()
     }
     
     
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
     
     
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
     }
     
@@ -40,14 +41,14 @@ class SMTViewController: UITableViewController {
         
         // Setup the buttons for editExistingMeme and pullUpMemeEditor
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.Plain, target: self, action: "editExistingMeme")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add,
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SMTViewController.editExistingMeme))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,
             target: self,
-            action: "pullUpMemeEditor")
+            action: #selector(SMTViewController.pullUpMemeEditor))
         navigationItem.title = "Sent Memes"
         
         // Load global application data
-        let object = UIApplication.sharedApplication().delegate as! AppDelegate
+        let object = UIApplication.shared.delegate as! AppDelegate
         let appDelgate = object as AppDelegate
         memes = appDelgate.memes
 
@@ -58,18 +59,18 @@ class SMTViewController: UITableViewController {
     func editExistingMeme(){
         // Only edit if something is selected
         
-        if let someindexrow = tableView.indexPathForSelectedRow?.row {
-            let evc = storyboard!.instantiateViewControllerWithIdentifier("EditorViewController") as! EditorViewController
+        if let someindexrow = (tableView.indexPathForSelectedRow as IndexPath?)?.row {
+            let evc = storyboard!.instantiateViewController(withIdentifier: "EditorViewController") as! EditorViewController
             evc.myMeme = memes[someindexrow]
-            presentViewController(evc, animated: true, completion: nil)
+            present(evc, animated: true, completion: nil)
         }
     }
     
     
     
     func pullUpMemeEditor(){
-        let evc = storyboard!.instantiateViewControllerWithIdentifier("EditorViewController") as! EditorViewController
-        presentViewController(evc, animated: true, completion: nil)
+        let evc = storyboard!.instantiateViewController(withIdentifier: "EditorViewController") as! EditorViewController
+        present(evc, animated: true, completion: nil)
     }
     
     
@@ -79,15 +80,15 @@ class SMTViewController: UITableViewController {
     
     
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memes.count
     }
     
     
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SentMemeCell") as UITableViewCell?
-        let meme : Meme = memes[indexPath.row]
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SentMemeCell") as UITableViewCell?
+        let meme : Meme = memes[(indexPath as NSIndexPath).row]
         // Setting the cell properties
         // Set the name and image
         cell!.textLabel?.text = "\(meme.topString) ... \(meme.bottomString)"
@@ -98,19 +99,19 @@ class SMTViewController: UITableViewController {
     
     
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // A Cell was selected call up the detail view of the cell or show the meme
         // Mark the TableViewCell
-        tableView.selectRowAtIndexPath(selection, animated: true, scrollPosition: UITableViewScrollPosition.Middle)
+        tableView.selectRow(at: selection, animated: true, scrollPosition: UITableViewScrollPosition.middle)
         
         // Save the user selection
         selection = indexPath
         
         // Bring up the detail view of the meme
-        let detailController = storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as? DetailViewController
-        detailController?.myMeme = memes[indexPath.row]
-        detailController?.position = indexPath.row
+        let detailController = storyboard!.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
+        detailController?.myMeme = memes[(indexPath as NSIndexPath).row]
+        detailController?.position = (indexPath as NSIndexPath).row
         navigationController!.pushViewController(detailController!, animated: true)
     }
 
@@ -118,16 +119,21 @@ class SMTViewController: UITableViewController {
     
     // Function to reload all data from global meme data
     func myreloadData() {
-        let object = UIApplication.sharedApplication().delegate as! AppDelegate
+        let object = UIApplication.shared.delegate as! AppDelegate
         let appDelegate = object as AppDelegate
+        
+        // Set the new memes so that tableView init will request a count that is accurate
         memes = appDelegate.memes
+        
+        // This function is called on the UIKit implementation of tableView since I deleted the IBOutlet to my localtable view
+        // This will call the tableView init and cellatindexrow
         tableView.reloadData()
         
         // If memes exist, Set the current selection to whatever the user last picked
         let memeexist: Bool = memes.count > 0
         
         if memeexist {
-            tableView.selectRowAtIndexPath(selection, animated: true, scrollPosition: UITableViewScrollPosition.Middle)
+            tableView.selectRow(at: selection, animated: true, scrollPosition: UITableViewScrollPosition.middle)
         }
     }
 
@@ -142,32 +148,32 @@ class SMTViewController: UITableViewController {
     
     
     // Always allow editable rows
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
     
     // Commit the delete function
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle:   UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+    override func tableView(_ tableView: UITableView, commit editingStyle:   UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
             
             // Remove from local model
-            memes.removeAtIndex(indexPath.row)
+            memes.remove(at: (indexPath as NSIndexPath).row)
             
             // Remove from UI
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation:UITableViewRowAnimation.Automatic)
+            tableView.deleteRows(at: [indexPath], with:UITableViewRowAnimation.automatic)
 
             // Remove from global model
-            let object = UIApplication.sharedApplication().delegate as! AppDelegate
+            let object = UIApplication.shared.delegate as! AppDelegate
             let appDelegate = object as AppDelegate
-            appDelegate.memes.removeAtIndex(indexPath.row)
+            appDelegate.memes.remove(at: (indexPath as NSIndexPath).row)
         }
     }
     
     
     
-    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-            return UITableViewCellEditingStyle.Delete;
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+            return UITableViewCellEditingStyle.delete;
     }
 
 }
