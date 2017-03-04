@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A785EF211C042539006B5392 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785EF201C042539006B5392 /* Meme.swift */; settings = {ASSET_TAGS = (); }; };
-		A79065D21C037965009A2732 /* Impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A79065D11C037965009A2732 /* Impact.ttf */; settings = {ASSET_TAGS = (); }; };
-		A79065DC1C03F451009A2732 /* collection_30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = A79065D61C03F451009A2732 /* collection_30x30.png */; settings = {ASSET_TAGS = (); }; };
-		A79065DD1C03F451009A2732 /* collection_60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = A79065D71C03F451009A2732 /* collection_60x60.png */; settings = {ASSET_TAGS = (); }; };
-		A79065DE1C03F451009A2732 /* table_90x90.png in Resources */ = {isa = PBXBuildFile; fileRef = A79065D81C03F451009A2732 /* table_90x90.png */; settings = {ASSET_TAGS = (); }; };
-		A79065DF1C03F451009A2732 /* table_30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = A79065D91C03F451009A2732 /* table_30x30.png */; settings = {ASSET_TAGS = (); }; };
-		A79065E01C03F451009A2732 /* table_60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = A79065DA1C03F451009A2732 /* table_60x60.png */; settings = {ASSET_TAGS = (); }; };
-		A79065E11C03F451009A2732 /* collection_90x90.png in Resources */ = {isa = PBXBuildFile; fileRef = A79065DB1C03F451009A2732 /* collection_90x90.png */; settings = {ASSET_TAGS = (); }; };
-		A7C196BA1BFED7AA00D0B776 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C196B91BFED7AA00D0B776 /* DetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		A785EF211C042539006B5392 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785EF201C042539006B5392 /* Meme.swift */; };
+		A79065D21C037965009A2732 /* Impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A79065D11C037965009A2732 /* Impact.ttf */; };
+		A79065DC1C03F451009A2732 /* collection_30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = A79065D61C03F451009A2732 /* collection_30x30.png */; };
+		A79065DD1C03F451009A2732 /* collection_60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = A79065D71C03F451009A2732 /* collection_60x60.png */; };
+		A79065DE1C03F451009A2732 /* table_90x90.png in Resources */ = {isa = PBXBuildFile; fileRef = A79065D81C03F451009A2732 /* table_90x90.png */; };
+		A79065DF1C03F451009A2732 /* table_30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = A79065D91C03F451009A2732 /* table_30x30.png */; };
+		A79065E01C03F451009A2732 /* table_60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = A79065DA1C03F451009A2732 /* table_60x60.png */; };
+		A79065E11C03F451009A2732 /* collection_90x90.png in Resources */ = {isa = PBXBuildFile; fileRef = A79065DB1C03F451009A2732 /* collection_90x90.png */; };
+		A7C196BA1BFED7AA00D0B776 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C196B91BFED7AA00D0B776 /* DetailViewController.swift */; };
 		A7C55CA51B6582B1004CE204 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C55CA41B6582B1004CE204 /* AppDelegate.swift */; };
 		A7C55CA71B6582B1004CE204 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C55CA61B6582B1004CE204 /* EditorViewController.swift */; };
 		A7C55CAA1B6582B1004CE204 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C55CA81B6582B1004CE204 /* Main.storyboard */; };
@@ -207,9 +207,11 @@
 				TargetAttributes = {
 					A7C55C9E1B6582B1004CE204 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0820;
 					};
 					A7C55CB31B6582B1004CE204 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0820;
 						TestTargetID = A7C55C9E1B6582B1004CE204;
 					};
 				};
@@ -403,6 +405,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "JamesJongs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -414,6 +417,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "JamesJongs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -433,6 +437,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "JamesJongs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MemeMe.app/MemeMe";
 			};
 			name = Debug;
@@ -449,6 +454,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "JamesJongs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MemeMe.app/MemeMe";
 			};
 			name = Release;

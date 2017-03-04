@@ -44,11 +44,11 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     // Setting Font Attributes
     let memeTextAttributes = [
-        NSStrokeColorAttributeName : UIColor.blackColor(),
-        NSForegroundColorAttributeName : UIColor.whiteColor(),
+        NSStrokeColorAttributeName : UIColor.black,
+        NSForegroundColorAttributeName : UIColor.white,
         NSFontAttributeName : UIFont(name: "Impact", size: 36)!,
         NSStrokeWidthAttributeName : -5.0
-    ]
+    ] as [String : Any]
     
     
     /**
@@ -81,7 +81,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
      
      **/
     // MARK: - Starting to load main ViewController and Initializations
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         subscribeToKeyboardShowNotifications()
 
@@ -89,7 +89,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         presentingViewController?.viewWillAppear(true)
     }
@@ -137,23 +137,23 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         
         // Setting Camera button state depending on hardware available
-        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
     }
     
     
     // Function to initialize textfield attributes
-    func initializeTextFields(editingTextField: UITextField){
+    func initializeTextFields(_ editingTextField: UITextField){
         // Apply fonts to textfields
         editingTextField.defaultTextAttributes = memeTextAttributes
         
         // Center align text (this must go after textAttributes are set otherwse it will not center text)
-        editingTextField.textAlignment = NSTextAlignment.Center
+        editingTextField.textAlignment = NSTextAlignment.center
         
         // Settextfields FontSize to Adjust automatically depending on length of string
         editingTextField.adjustsFontSizeToFitWidth = true
         
         // Set textfields to always capitalize
-        editingTextField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
+        editingTextField.autocapitalizationType = UITextAutocapitalizationType.allCharacters
     }
 
     
@@ -181,26 +181,25 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         
     
         // Present the ActivityViewController
-        presentViewController(controller, animated: true, completion: nil)
+        present(controller, animated: true, completion: nil)
         
         
         // Assign the function that should run when ActivityViewController completes
-        controller.completionWithItemsHandler = {
-            
-            (s: String?, ok: Bool, items: [AnyObject]?, err:NSError?) -> Void in
-            
-            // Only save if the share command was successful
-            if (ok){
-                self.save()
-            }
-        }
+//        controller.completionWithItemsHandler = {
+//            (s: String?, ok: Bool, items: [AnyObject]?, err:NSError?) -> Void in
+//            
+//            // Only save if the share command was successful
+//            if (ok){
+//                self.save()
+//            }
+//        }
         
     }
     
     
     /// The target of the Cancel Button; reinitializes the base page
-    @IBAction func cancel(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancel(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
     
 
@@ -217,18 +216,18 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     // MARK: - Loading Images from Album or Camera
      
     // Selects an Image from the photo album
-    @IBAction func pickAnImage(sender: AnyObject) {
-        imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
-        presentViewController(imagePicker, animated: true, completion: nil)
+    @IBAction func pickAnImage(_ sender: AnyObject) {
+        imagePicker.sourceType = UIImagePickerControllerSourceType.savedPhotosAlbum
+        present(imagePicker, animated: true, completion: nil)
     }
     
     
     
     /// Selects an Image from the camera
-    @IBAction func pickAnImageFromCamera (sender: AnyObject) {
+    @IBAction func pickAnImageFromCamera (_ sender: AnyObject) {
         imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        presentViewController(imagePicker, animated: true, completion: nil)
+        imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+        present(imagePicker, animated: true, completion: nil)
     }
     
     
@@ -246,7 +245,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     // MARK: - UIImagePickerControllerDelegate Methods
      
     /// Present the new UIImage in the imageview
-    func imagePickerController(picker:  UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]){
+    func imagePickerController(_ picker:  UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
 
             // Verify that the image is a UIImage; if it is then show it
             if let image = info[UIImagePickerControllerOriginalImage] as? UIImage
@@ -254,21 +253,21 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
                 
                 imagePickerView.image = image
 
-                imagePickerView.contentMode = UIViewContentMode.ScaleAspectFit
+                imagePickerView.contentMode = UIViewContentMode.scaleAspectFit
                 
                 // Now that we have an image available; allow sharebutton
-                shareButton.enabled = true
+                shareButton.isEnabled = true
             }
             
             
             // Dismiss the ImagePicker ViewController.
-            dismissViewControllerAnimated(true, completion: nil)
+            dismiss(animated: true, completion: nil)
     }
     
     
     // Dismiss the ImagePicker ViewController because the user cancelled the ImagePicker
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
     
     
@@ -286,14 +285,14 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     // MARK: - UITextField delegate methods
 
     
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         
         currentTextFieldBeingEdited = textField.tag
         
         currentTextField = textField
         
         // Sign up for keyboardWillHide notifications
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(EditorViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
         
         // Always fix the font of the textfield as sometimes it defaults out.
@@ -304,7 +303,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // When return is hit on the keyboard, dismiss the keyboard
         textField.resignFirstResponder()
         return true
@@ -312,7 +311,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         // This is a good place to save text data in the future.
     }
     
@@ -330,14 +329,14 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     // MARK: - Keyboard elevating functions
      
     // Generates a keyboard height for the bottom textfield, generates 0 for top textfield
-    func getKeyboardHeight(notification:NSNotification) -> CGFloat {
+    func getKeyboardHeight(_ notification:Notification) -> CGFloat {
         
         // Only save a keyboard height offset when the bottom textfield calls for a keyboard; 
         // (this function is guaranteed to happen AFTER textFieldShouldBeginEditing function is called)
         if (currentTextField.tag == BOTTOMTEXTFIELDID) { // The bottomTextField is calling for a keyboard
-            let userInfo = notification.userInfo
+            let userInfo = (notification as NSNotification).userInfo
             let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue// of CGRect
-            return keyboardSize.CGRectValue().height
+            return keyboardSize.cgRectValue.height
         } else { // The topTextField is calling for a keyboard
             return 0.0
         }
@@ -345,7 +344,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     // Moves the view up prior to presenting keyboard
-    func keyboardWillShow(notification: NSNotification){
+    func keyboardWillShow(_ notification: Notification){
         
         // Get height of keyboard and save it globally
         myKeyboardHeight = getKeyboardHeight(notification)
@@ -353,7 +352,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         // Move the whole UIView up by the keyboard amount
         if myKeyboardHeight != 0 {
-            view.transform = CGAffineTransformMakeTranslation(0,-myKeyboardHeight)
+            view.transform = CGAffineTransform(translationX: 0,y: -myKeyboardHeight)
         }
         
         
@@ -367,11 +366,11 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     // Moves the view down when the keyboard is dismissed
-    func keyboardWillHide(notification: NSNotification){
+    func keyboardWillHide(_ notification: Notification){
 
         // Move the bottomTextFiled UIView down by the keyboard amount
         if myKeyboardHeight != 0 {
-            view.transform = CGAffineTransformMakeTranslation(0, 0)
+            view.transform = CGAffineTransform(translationX: 0, y: 0)
         }
         
         unsubscribeFromKeyboardHideNotifications()
@@ -382,7 +381,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     // Subscribes to the notification center for keyboard appearances
     func subscribeToKeyboardShowNotifications(){
         // Notify this view controller when keyboard will show
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(EditorViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
     }
     
@@ -390,7 +389,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     // Subscribes to the notification center for keyboard disappearances
     func subscribeToKeyboardHideNotifications(){
         // Notify this viewcontroller when keyboard will hide
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(EditorViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
     }
     
@@ -398,7 +397,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     /// Unsubscribes to the notification center for keyboard appearnaces
     func unsubscribeFromKeyboardShowNotifications(){
         // Stop notifying this view controller when the keyboard will show
-        NSNotificationCenter.defaultCenter().removeObserver(self, name:UIKeyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         
     }
     
@@ -406,7 +405,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     /// Unscubscribes to the notification center for keyboard disappearances
     func unsubscribeFromKeyboardHideNotifications(){
         // Stop notifying this view controller when the keyboard will hide
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
   
@@ -439,7 +438,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
         
         // Add it to the memes array in the Application Delegate
-        let tempAppDel = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        let tempAppDel = (UIApplication.shared.delegate as! AppDelegate)
         tempAppDel.memes.append(meme)
 
     }
@@ -449,19 +448,19 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     // Creates a UIImage that combines the Image View and the Textfields
     func generateMemedImage() -> UIImage {
         // Hide toolbar and navigation bar
-        toolbar.hidden = true
-        navbar.hidden = true
+        toolbar.isHidden = true
+        navbar.isHidden = true
         
         // Render view to an image
         UIGraphicsBeginImageContext(view.frame.size)
-        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
+        view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
 
-        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
         // Show toolbar navbar
-        toolbar.hidden = false
-        navbar.hidden = false
+        toolbar.isHidden = false
+        navbar.isHidden = false
         
         return memedImage
     }
@@ -475,22 +474,21 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     **/
     // MARK: - UI Gesturerecognizer functions
     
-    @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
+    @IBAction func handlePan(_ recognizer:UIPanGestureRecognizer) {
         
-        let translationamount = recognizer.translationInView(view)
+        let translationamount = recognizer.translation(in: view)
         
         if let view = recognizer.view {
             view.center = CGPoint(x:view.center.x + translationamount.x,
                 y:view.center.y + translationamount.y)
         }
-        recognizer.setTranslation(CGPointZero, inView: view)
+        recognizer.setTranslation(CGPoint.zero, in: view)
     }
     
-    @IBAction func handlePinch(recognizer : UIPinchGestureRecognizer) {
+    @IBAction func handlePinch(_ recognizer : UIPinchGestureRecognizer) {
         if let localview = recognizer.view {
 
-            localview.transform = CGAffineTransformScale(localview.transform,
-                recognizer.scale, recognizer.scale)
+            localview.transform = localview.transform.scaledBy(x: recognizer.scale, y: recognizer.scale)
             recognizer.scale = 1
 
         }
@@ -508,7 +506,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     // MARK: - Centering image code
     
     // Function to center the image
-    @IBAction func centerImage(sender: AnyObject){
+    @IBAction func centerImage(_ sender: AnyObject){
         
         imagePickerView.center = view.center
         imagePickerView.setNeedsDisplay()
