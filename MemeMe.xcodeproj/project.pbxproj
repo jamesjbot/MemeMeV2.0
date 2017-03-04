@@ -39,13 +39,13 @@
 
 /* Begin PBXFileReference section */
 		A785EF201C042539006B5392 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
-		A79065D11C037965009A2732 /* Impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Impact.ttf; sourceTree = "<group>"; };
-		A79065D61C03F451009A2732 /* collection_30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collection_30x30.png; sourceTree = "<group>"; };
-		A79065D71C03F451009A2732 /* collection_60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collection_60x60.png; sourceTree = "<group>"; };
-		A79065D81C03F451009A2732 /* table_90x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = table_90x90.png; sourceTree = "<group>"; };
-		A79065D91C03F451009A2732 /* table_30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = table_30x30.png; sourceTree = "<group>"; };
-		A79065DA1C03F451009A2732 /* table_60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = table_60x60.png; sourceTree = "<group>"; };
-		A79065DB1C03F451009A2732 /* collection_90x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collection_90x90.png; sourceTree = "<group>"; };
+		A79065D11C037965009A2732 /* Impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Impact.ttf; path = MemeMe/Impact.ttf; sourceTree = "<group>"; };
+		A79065D61C03F451009A2732 /* collection_30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = collection_30x30.png; path = MemeMe/collection_30x30.png; sourceTree = "<group>"; };
+		A79065D71C03F451009A2732 /* collection_60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = collection_60x60.png; path = MemeMe/collection_60x60.png; sourceTree = "<group>"; };
+		A79065D81C03F451009A2732 /* table_90x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = table_90x90.png; path = MemeMe/table_90x90.png; sourceTree = "<group>"; };
+		A79065D91C03F451009A2732 /* table_30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = table_30x30.png; path = MemeMe/table_30x30.png; sourceTree = "<group>"; };
+		A79065DA1C03F451009A2732 /* table_60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = table_60x60.png; path = MemeMe/table_60x60.png; sourceTree = "<group>"; };
+		A79065DB1C03F451009A2732 /* collection_90x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = collection_90x90.png; path = MemeMe/collection_90x90.png; sourceTree = "<group>"; };
 		A7C196B91BFED7AA00D0B776 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A7C55C9F1B6582B1004CE204 /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C55CA31B6582B1004CE204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
