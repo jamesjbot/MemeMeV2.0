@@ -7,9 +7,9 @@ provides-member:
 - ["V6MemeMe4Meme", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- "UIImage"
 - "Meme"
 - "String"
-- "UIImage"
 depends-member:
 - ["V6MemeMe4Meme", "String"]
 - ["V6MemeMe4Meme", "UIImage"]

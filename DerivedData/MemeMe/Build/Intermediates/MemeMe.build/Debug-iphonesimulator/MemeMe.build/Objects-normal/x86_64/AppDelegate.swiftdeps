@@ -6,23 +6,23 @@ provides-nominal:
 provides-member:
 - ["C6MemeMe11AppDelegate", ""]
 provides-dynamic-lookup:
-- "applicationDidBecomeActive"
 - "applicationWillEnterForeground"
-- "applicationDidEnterBackground"
-- "application"
-- "applicationWillTerminate"
-- "applicationWillResignActive"
 - "window"
+- "application"
+- "applicationDidBecomeActive"
+- "applicationWillResignActive"
+- "applicationWillTerminate"
+- "applicationDidEnterBackground"
 depends-top-level:
-- "UIApplicationLaunchOptionsKey"
-- !private "BooleanLiteralType"
-- "UIApplicationDelegate"
+- "Meme"
+- "AppDelegate"
 - "Bool"
+- "UIApplicationLaunchOptionsKey"
+- "UIApplicationDelegate"
 - "UIWindow"
 - "UIApplication"
-- "Meme"
 - "UIResponder"
-- "AppDelegate"
+- !private "BooleanLiteralType"
 depends-member:
 - ["Ps9AnyObject", "Meme"]
 - ["Ps9AnyObject", "application"]

@@ -1,11 +1,11 @@
 version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
 options: "c35cd194d761da078862e7c4d59658d4"
-build_time: [536315063, 148333000]
+build_time: [541975401, 522350000]
 inputs:
   "/Users/jamesjongs/Desktop/Projects/MemeMeV2.0/MemeMe/MemeCollectionViewCell.swift": [504012533, 0]
   "/Users/jamesjongs/Desktop/Projects/MemeMeV2.0/MemeMe/DetailViewController.swift": [529974067, 0]
   "/Users/jamesjongs/Desktop/Projects/MemeMeV2.0/MemeMe/Meme.swift": [504012533, 0]
   "/Users/jamesjongs/Desktop/Projects/MemeMeV2.0/MemeMe/GridViewController.swift": [529974068, 0]
-  "/Users/jamesjongs/Desktop/Projects/MemeMeV2.0/MemeMe/SMTViewController.swift": [529974068, 0]
-  "/Users/jamesjongs/Desktop/Projects/MemeMeV2.0/MemeMe/EditorViewController.swift": [529974230, 0]
+  "/Users/jamesjongs/Desktop/Projects/MemeMeV2.0/MemeMe/SMTViewController.swift": [541974547, 0]
+  "/Users/jamesjongs/Desktop/Projects/MemeMeV2.0/MemeMe/EditorViewController.swift": [541975233, 0]
   "/Users/jamesjongs/Desktop/Projects/MemeMeV2.0/MemeMe/AppDelegate.swift": [529974067, 0]
