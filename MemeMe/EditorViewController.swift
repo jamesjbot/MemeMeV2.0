@@ -185,15 +185,16 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         
         // Assign the function that should run when ActivityViewController completes
-//        controller.completionWithItemsHandler = {
-//            (s: String?, ok: Bool, items: [AnyObject]?, err:NSError?) -> Void in
-//            
-//            // Only save if the share command was successful
-//            if (ok){
-//                self.save()
-//            }
-//        }
-        
+        //controller.completionWithItemsHandler = UIA
+        controller.completionWithItemsHandler = {
+            (activity: UIActivityType?, ok: Bool, items: [Any]?, err: Error?) -> Void in
+            
+            // Only save if the share command was successful
+            if (ok){
+                self.save()
+            }
+        }
+
     }
     
     
