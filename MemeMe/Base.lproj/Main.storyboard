@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="2Ud-h8-NxX">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="2Ud-h8-NxX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,7 +15,7 @@
             <objects>
                 <navigationController id="j1b-HP-D64" userLabel="TableView UINavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Table View" image="table_30x30.png" id="sxr-jK-M0V"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cen-Cc-jOp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Cen-Cc-jOp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -34,14 +37,14 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SentMemeCell" textLabel="FQH-Ns-pV9" rowHeight="60" style="IBUITableViewCellStyleDefault" id="RkR-cb-82d">
-                                <rect key="frame" x="0.0" y="65" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="1" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RkR-cb-82d" id="xLP-MP-m3e">
-                                    <frame key="frameInset" width="375" height="59.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FQH-Ns-pV9">
-                                            <frame key="frameInset" minX="15" width="345" height="59.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -75,7 +78,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oT0-OB-vpO">
-                                <frame key="frameInset" minY="28" width="320" height="540"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="540"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -118,7 +121,7 @@
             <objects>
                 <navigationController id="wem-T4-TGq" userLabel="Grid View" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Grid View" image="collection_30x30.png" id="zMv-MA-Wjh"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YQX-Fv-UJo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="YQX-Fv-UJo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -134,7 +137,7 @@
         <scene sceneID="Bra-z4-r6z">
             <objects>
                 <collectionViewController storyboardIdentifier="SentMemesCollectionViewController" id="xI3-Mf-V1J" customClass="GridViewController" customModule="MemeMe" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="w37-We-Kna">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="w37-We-Kna">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7dX-qP-3XF">
@@ -152,7 +155,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y7B-hG-A7V">
-                                            <frame key="frameInset" width="101" height="109"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="101" height="109"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -188,16 +191,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="restoredimageview" translatesAutoresizingMaskIntoConstraints="NO" id="ek0-L9-hgA">
-                                <frame key="frameInset" minY="20" width="320" height="548"/>
+                            <imageView clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="restoredimageview" translatesAutoresizingMaskIntoConstraints="NO" id="ek0-L9-hgA">
+                                <rect key="frame" x="-4" y="20" width="383" height="647"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="YuK-AM-x2L" appends="YES" id="MMp-Bx-Wbx"/>
                                     <outletCollection property="gestureRecognizers" destination="TX7-qY-Ame" appends="YES" id="XZl-5E-43v"/>
                                 </connections>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="12F-Uh-rBB">
-                                <frame key="frameInset" minX="16" minY="464" width="288" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="12F-Uh-rBB">
+                                <rect key="frame" x="16" y="580" width="343" height="13"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Bottom">
@@ -213,8 +216,8 @@
                                     <action selector="touchInsideBottomText:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="FDi-Wj-aVX"/>
                                 </connections>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nhi-pm-NuB">
-                                <frame key="frameInset" minY="20" width="320" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhi-pm-NuB">
+                                <rect key="frame" x="-4" y="20" width="383" height="44"/>
                                 <items>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="21A-RU-0Qf"/>
                                     <barButtonItem systemItem="action" id="hGg-K9-pFK">
@@ -231,8 +234,8 @@
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="tDb-Pf-R89"/>
                                 </items>
                             </toolbar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="bottom" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2cO-Wc-mAP">
-                                <frame key="frameInset" minY="524" width="320" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="2cO-Wc-mAP">
+                                <rect key="frame" x="-4" y="623" width="383" height="44"/>
                                 <items>
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="jCB-7g-iBu"/>
                                     <barButtonItem title="Pick From Album" style="plain" id="bR4-M6-Uqh">
@@ -247,12 +250,16 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="1vK-bs-fQY"/>
-                                    <barButtonItem style="plain" systemItem="camera" id="UOC-Zn-zTr"/>
+                                    <barButtonItem style="plain" systemItem="camera" id="UOC-Zn-zTr">
+                                        <connections>
+                                            <action selector="pickAnImageFromCamera:" destination="vXZ-lx-hvc" id="meY-Pj-sqC"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="XWr-Ut-Iot"/>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="288" placeholderIntrinsicHeight="30" contentHorizontalAlignment="center" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="26r-2a-EZS">
-                                <frame key="frameInset" minX="12" minY="92" width="288" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" placeholderIntrinsicWidth="288" placeholderIntrinsicHeight="30" contentHorizontalAlignment="center" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="26r-2a-EZS">
+                                <rect key="frame" x="16" y="94" width="343" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Top">
@@ -296,6 +303,7 @@
                         <outlet property="shareButton" destination="hGg-K9-pFK" id="AxD-Nu-YRj"/>
                         <outlet property="toolbar" destination="2cO-Wc-mAP" id="VV4-Ec-PDa"/>
                         <outlet property="topTextField" destination="26r-2a-EZS" id="nNN-Kx-53s"/>
+                        <outlet property="wholeView" destination="kh9-bI-dsS" id="oHm-d6-wdq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
