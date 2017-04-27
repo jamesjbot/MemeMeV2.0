@@ -15,7 +15,7 @@
             <objects>
                 <navigationController id="j1b-HP-D64" userLabel="TableView UINavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Table View" image="table_30x30.png" id="sxr-jK-M0V"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Cen-Cc-jOp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cen-Cc-jOp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -121,7 +121,7 @@
             <objects>
                 <navigationController id="wem-T4-TGq" userLabel="Grid View" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Grid View" image="collection_30x30.png" id="zMv-MA-Wjh"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="YQX-Fv-UJo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YQX-Fv-UJo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -137,7 +137,7 @@
         <scene sceneID="Bra-z4-r6z">
             <objects>
                 <collectionViewController storyboardIdentifier="SentMemesCollectionViewController" id="xI3-Mf-V1J" customClass="GridViewController" customModule="MemeMe" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="w37-We-Kna">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="w37-We-Kna">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7dX-qP-3XF">
@@ -303,7 +303,6 @@
                         <outlet property="shareButton" destination="hGg-K9-pFK" id="AxD-Nu-YRj"/>
                         <outlet property="toolbar" destination="2cO-Wc-mAP" id="VV4-Ec-PDa"/>
                         <outlet property="topTextField" destination="26r-2a-EZS" id="nNN-Kx-53s"/>
-                        <outlet property="wholeView" destination="kh9-bI-dsS" id="oHm-d6-wdq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
