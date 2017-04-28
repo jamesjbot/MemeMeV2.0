@@ -353,6 +353,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         // Move the whole UIView up by the keyboard amount
         if myKeyboardHeight != 0 {
+            topTextField.isHidden = true
             view.transform = CGAffineTransform(translationX: 0,y: -myKeyboardHeight)
         }
         
@@ -371,6 +372,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
 
         // Move the bottomTextFiled UIView down by the keyboard amount
         if myKeyboardHeight != 0 {
+            topTextField.isHidden = false
             view.transform = CGAffineTransform(translationX: 0, y: 0)
         }
         

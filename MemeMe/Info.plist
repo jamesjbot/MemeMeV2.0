@@ -28,6 +28,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Allow us to use images from your media library for Meme material</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow us to take pictures to use as Meme material</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow us to use images from your library for Meme material</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Impact.ttf</string>
